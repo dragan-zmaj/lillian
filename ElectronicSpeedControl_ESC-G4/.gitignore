@@ -1,0 +1,17 @@
+# All but .ioc which is modified to initialize CAN
+!ElectronicSpeedControl_ESC-G4/ElectronicSpeedControl_ESC-G4.ioc
+
+# Ignore all generated data
+Drivers
+ftl
+Inc
+MCSDK_v6.4.2-Full
+Src
+STM32CubeIDE
+.extSettings
+.mxproject
+*.ioc.wb
+*.log
+*.settings
+*.wbdef
+
