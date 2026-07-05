@@ -2,11 +2,7 @@
 !ElectronicSpeedControl_ESC-G4/ElectronicSpeedControl_ESC-G4.ioc
 
 # Ignore all generated data
-Drivers
-ftl
-Inc
-MCSDK_v6.4.2-Full
-Src
+build
 STM32CubeIDE
 .extSettings
 .mxproject
@@ -14,4 +10,5 @@ STM32CubeIDE
 *.log
 *.settings
 *.wbdef
+*:Zone.Identifier
 

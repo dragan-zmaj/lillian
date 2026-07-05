@@ -51,3 +51,22 @@ This project is meant for exercise and learning of cyphal protocol over CAN with
 	- export UAVCAN__CAN__BITRATE="1000000 1000000"
 	- export UAVCAN__NODE__ID="42" 
 these lines can be added to ~/.bashrc to make them permanent
+
+### stm32 environment in wsl
+	- arm-none-eabi-gdb
+	- make
+	- OpenOCD
+	- stm32cubeclt -> generic linux installer -> ttps://www.st.com/en/development-tools/stm32cubeclt.html
+	
+### build stm32 with make toolchain
+	- make -j4
+
+### flash the target
+#### powershell
+	- usbipd list
+	- usbipd bind --busid <BUSID>
+	- usbipd attach --wsl --busid <BUSID>
+#### wsl
+	- sudo openocd -f interface/stlink.cfg -f target/stm32g4x.cfg -c "program build/ElectronicSpeedControl_ESC-G4.bin 0x08000000 verify reset exit"
+
+	
