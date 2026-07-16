@@ -43,14 +43,19 @@ This project is meant for exercise and learning of cyphal protocol over CAN with
 ### clone in .cyphal
 	- git clone https://github.com/OpenCyphal/public_regulated_data_types
 
+### check where is cansl device
+	- ls -l /dev/serial/by-id/
+
 ### make enviroment variable that points there:
-	- export CYPHAL_PATH="/home/x230/.cyphal/public_regulated_data_types"
 	- export CYPHAL_PATH="/home/x230/.cyphal/public_regulated_data_types"
 	- export UAVCAN__CAN__IFACE="slcan:/dev/ttyACM0"
 	- export UAVCAN__CAN__MTU="8"
 	- export UAVCAN__CAN__BITRATE="1000000 1000000"
 	- export UAVCAN__NODE__ID="42" 
 these lines can be added to ~/.bashrc to make them permanent
+
+### send heartbeat with yakut
+	- yakut pub --period=1 uavcan.node.Heartbeat.1.0 '{uptime: 0, health: 0, mode: 0, vendor_specific_status_code: 0}'
 
 ### stm32 environment in wsl
 	- arm-none-eabi-gdb
