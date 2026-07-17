@@ -1,0 +1,9 @@
+# Motor control command for ESC
+# This message controls the motor start/stop state
+
+# Control flags
+bool startMotor          # True = start, False = stop
+
+---
+# Default extent for messages
+@extent 64 * 8

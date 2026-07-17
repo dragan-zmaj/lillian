@@ -1,0 +1,8 @@
+# RPM setpoint message for ESC
+# Sets the target RPM for the motor
+
+# RPM target value (can be negative for reverse direction if supported)
+int32 target_rpm         # Target RPM value (1/min)
+
+---
+@extent 64 * 8

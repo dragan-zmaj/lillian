@@ -13,7 +13,7 @@
 ######################################
 # target
 ######################################
-TARGET = ElectronicSpeedControl_ESC-G4
+TARGET = lillian
 
 
 ######################################
@@ -36,75 +36,75 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
-Src/main.c \
-Src/motorcontrol.c \
-Src/speed_torq_ctrl.c \
-Src/pwm_common.c \
-Src/mc_api.c \
-Src/mc_config.c \
-Src/mc_config_common.c \
-Src/mc_tasks.c \
-Src/mc_tasks_foc.c \
-Src/pwm_curr_fdbk.c \
-Src/regular_conversion_manager.c \
-Src/mc_math.c \
-Src/mc_interface.c \
-Src/stm32_mc_common_it.c \
-Src/stm32g4xx_mc_it.c \
-Src/mc_parameters.c \
-Src/mc_configuration_registers.c \
-Src/hall_speed_pos_fdbk.c \
-Src/mc_app_hooks.c \
-Src/speed_potentiometer.c \
-Src/stm32g4xx_it.c \
-Src/stm32g4xx_hal_msp.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_comp.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cordic.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_opamp.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_opamp_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c \
-Src/system_stm32g4xx.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/bus_voltage_sensor.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/circle_limitation.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/digital_output.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/flux_weakening_ctrl.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/ntc_temperature_sensor.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/open_loop.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/pid_regulator.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/pqd_motor_power_measurement.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/r_divider_bus_voltage_sensor.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/ramp_ext_mngr.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/revup_ctrl.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/speed_pos_fdbk.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/virtual_speed_sensor.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/G4xx/Src/r3_2_g4xx_pwm_curr_fdbk.c \
-MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/potentiometer.c \
-Src/sysmem.c \
-Src/syscalls.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c
+src/main.c \
+src/motorcontrol.c \
+src/speed_torq_ctrl.c \
+src/pwm_common.c \
+src/mc_api.c \
+src/mc_config.c \
+src/mc_config_common.c \
+src/mc_tasks.c \
+src/mc_tasks_foc.c \
+src/pwm_curr_fdbk.c \
+src/regular_conversion_manager.c \
+src/mc_math.c \
+src/mc_interface.c \
+src/stm32_mc_common_it.c \
+src/stm32g4xx_mc_it.c \
+src/mc_parameters.c \
+src/mc_configuration_registers.c \
+src/hall_speed_pos_fdbk.c \
+src/mc_app_hooks.c \
+src/speed_potentiometer.c \
+src/stm32g4xx_it.c \
+src/stm32g4xx_hal_msp.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_comp.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cordic.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac_ex.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_opamp.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_opamp_ex.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c \
+src/system_stm32g4xx.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/bus_voltage_sensor.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/circle_limitation.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/digital_output.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/flux_weakening_ctrl.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/ntc_temperature_sensor.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/open_loop.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/pid_regulator.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/pqd_motor_power_measurement.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/r_divider_bus_voltage_sensor.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/ramp_ext_mngr.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/revup_ctrl.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/speed_pos_fdbk.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/virtual_speed_sensor.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/G4xx/Src/r3_2_g4xx_pwm_curr_fdbk.c \
+libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/potentiometer.c \
+src/sysmem.c \
+src/syscalls.c \
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c
 
 # ASM sources
 ASM_SOURCES =  \
-startup_stm32g431xx.s
+src/startup_stm32g431xx.s
 
 # ASMM sources
 ASMM_SOURCES = 
@@ -162,14 +162,14 @@ AS_INCLUDES =
 
 # C includes
 C_INCLUDES =  \
--IInc \
--IDrivers/STM32G4xx_HAL_Driver/Inc \
--IDrivers/STM32G4xx_HAL_Driver/Inc/Legacy \
--IMCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Inc \
--IMCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/G4xx/Inc \
--IDrivers/CMSIS/Device/ST/STM32G4xx/Include \
--IDrivers/CMSIS/Include \
--IDrivers/CMSIS/DSP/Include
+-Iinc \
+-Ilibs/drivers/STM32G4xx_HAL_Driver/Inc \
+-Ilibs/drivers/STM32G4xx_HAL_Driver/Inc/Legacy \
+-Ilibs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Inc \
+-Ilibs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/G4xx/Inc \
+-Ilibs/drivers/CMSIS/Device/ST/STM32G4xx/Include \
+-Ilibs/drivers/CMSIS/Include \
+-Ilibs/drivers/CMSIS/DSP/Include
 
 
 # compile gcc flags
