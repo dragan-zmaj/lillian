@@ -4,6 +4,5 @@
 # Control flags
 bool startMotor          # True = start, False = stop
 
----
 # Default extent for messages
 @extent 64 * 8

@@ -8,7 +8,7 @@
       "servertype": "openocd",
       "executable": "${workspaceRoot}/build/lillian.elf",
       "gdbPath": "gdb-multiarch",
-      "toolchainPrefix": "arm-none-eabi",
+      "objdumpPath": "arm-none-eabi-objdump",
       "device": "STM32G431xx",
       "configFiles": [
         "interface/stlink.cfg",

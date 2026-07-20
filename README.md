@@ -45,15 +45,29 @@ these lines can be added to ~/.bashrc to make them permanent
 	- yakut pub --period=1 uavcan.node.Heartbeat.1.0 '{uptime: 0, health: 0, mode: 0, vendor_specific_status_code: 0}'
 
 ### stm32 environment in wsl
-	- arm-none-eabi-gdb
+	- gdb-multiarch 
+			- gdb-multiarch --batch --eval-command="set architecture arm"
 	- make
 	- openocd
-	- stm32cubeclt -> generic linux installer -> ttps://www.st.com/en/development-tools/stm32cubeclt.html
 	
 ### build stm32 with make toolchain
 	- make -j4
+	- make -j$(nproc)
 
 ### flash the target
 	- sudo openocd -f interface/stlink.cfg -f target/stm32g4x.cfg -c "program build/lillian.bin 0x08000000 verify reset exit"
+
+### debug the target
+	- sudo openocd -f interface/stlink.cfg -f target/stm32g4x.cfg 	(Terminal1)
+	- gdb-multiarch build/lillian.elf							  	(Terminal2)
+	(gdb) target remote :3333										(Terminal2)
+
+	alternatively - install extension Cortex-Debug by marus25, launch.json is already configured in .vscode, just hit CTRL+SHIFT+D
+
+install clangd extension
+sudo apt update && sudo apt install bear
+make clean
+bear -- make -> building it this way is created compile_commands.json, which clangd can access to make whole code accessible in debugging
+
 
 	
