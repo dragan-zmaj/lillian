@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug lillian (OpenOCD)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "executable": "${workspaceRoot}/build/lillian.elf",
+      "gdbPath": "gdb-multiarch",
+      "toolchainPrefix": "arm-none-eabi",
+      "device": "STM32G431xx",
+      "configFiles": [
+        "interface/stlink.cfg",
+        "target/stm32g4x.cfg"
+      ],
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "none",
+      "svdFile": "${workspaceRoot}/tool/STM32G431xx.svd"
+    }
+  ]
+}
