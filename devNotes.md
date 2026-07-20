@@ -24,6 +24,7 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 ### Install pycyphal, yakut
 	- pip install pycyphal
 	- pip install yakut
+	- pip install nunavut
 
 ### check where is cansl device
 	- ls -l /dev/serial/by-id/
@@ -44,7 +45,7 @@ these lines can be added to ~/.bashrc to make them permanent
 ### send heartbeat with yakut
 	- yakut pub --period=1 uavcan.node.Heartbeat.1.0 '{uptime: 0, health: 0, mode: 0, vendor_specific_status_code: 0}'
 
-### stm32 environment in wsl
+### stm32 environment in linux
 	- gdb-multiarch 
 			- gdb-multiarch --batch --eval-command="set architecture arm"
 	- make
@@ -72,6 +73,27 @@ these lines can be added to ~/.bashrc to make them permanent
 
 	-> building project this way creates compile_commands.json in root, which clangd can access to make whole code accessible in debugging
 	
+
+### remaining to do
+	- HAL2Cyphal binding
+	- DSDL Generation
+	- Application mapping - start/stop, rpm control
+	- Host(Yakut) Integration
+#### risks
+	polling or interrupt CAN ?
+	---> HYBRID APPROACH <---
+	- CAN interrupt very swiftly transfers data from hardware FIFO to software ring buffer
+	- Libcanard executed in polling fashion
+
+### command to generate messages for C from dsdl
+	- nnvg --target-language c \
+		--outdir ./generated/cyphalHeaders \
+		--lookup-dir ../public_regulated_data_types/uavcan \
+		./tool/cyphalMessages
+
+### command to generate messages for host Yakut
+	- yakut compile ../public_regulated_data_types/uavcan ./tool/cyphalMessages --output=./generated/cyphalHost
+
 
 
 
