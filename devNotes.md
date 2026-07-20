@@ -57,17 +57,22 @@ these lines can be added to ~/.bashrc to make them permanent
 ### flash the target
 	- sudo openocd -f interface/stlink.cfg -f target/stm32g4x.cfg -c "program build/lillian.bin 0x08000000 verify reset exit"
 
-### debug the target
-	- sudo openocd -f interface/stlink.cfg -f target/stm32g4x.cfg 	(Terminal1)
-	- gdb-multiarch build/lillian.elf							  	(Terminal2)
-	(gdb) target remote :3333										(Terminal2)
+### debug the target in cmd
+	- sudo openocd -f interface/stlink.cfg -f target/stm32g4x.cfg 							(Terminal1)
+	- gdb-multiarch build/lillian.elf				(Terminal2)
+	(gdb) target remote :3333						(Terminal2)
 
-	alternatively - install extension Cortex-Debug by marus25, launch.json is already configured in .vscode, just hit CTRL+SHIFT+D
+### debug the target in gui
+- install extension Cortex-Debug by marus25, launch.json is already configured in .vscode, just hit CTRL+SHIFT+D
 
-install clangd extension
-sudo apt update && sudo apt install bear
-make clean
-bear -- make -> building it this way is created compile_commands.json, which clangd can access to make whole code accessible in debugging
+- install clangd extension
+	- sudo apt update && sudo apt install bear
+	- make clean
+	- bear -- make 
+
+	-> building project this way creates compile_commands.json in root, which clangd can access to make whole code accessible in debugging
+	
+
 
 
 	

@@ -12,4 +12,6 @@ generated
 *.settings
 *.wbdef
 *:Zone.Identifier
+compile_commands.json
+.cache
 
