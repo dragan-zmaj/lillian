@@ -87,14 +87,15 @@ these lines can be added to ~/.bashrc to make them permanent
 
 ### command to generate messages for C from dsdl
 	- nnvg --target-language c \
-		--outdir ./generated/cyphalHeaders \
+		--outdir ./inc \
 		--lookup-dir ../public_regulated_data_types/uavcan \
 		./tool/cyphalMessages
 
+	- nnvg --target-language c \
+		--outdir ./inc \
+		--lookup-dir ../public_regulated_data_types/uavcan \
+		../public_regulated_data_types/uavcan
+
 ### command to generate messages for host Yakut
-	- yakut compile ../public_regulated_data_types/uavcan ./tool/cyphalMessages --output=./generated/cyphalHost
+	- yakut compile ../public_regulated_data_types/uavcan ./tool/cyphalMessages --output=./tool/cyphalHost
 
-
-
-
-	

@@ -4,7 +4,6 @@
 # Ignore all generated data
 build
 STM32CubeIDE
-generated
 .extSettings
 .mxproject
 *.ioc.wb
