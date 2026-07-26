@@ -60,9 +60,8 @@ OPAMP_HandleTypeDef hopamp3;
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
 
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
+FDCAN_TxHeaderTypeDef TxHeader;
+uint8_t TxData[8];
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -81,6 +80,7 @@ static void MX_TIM1_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_FDCAN1_Init(void);
 static void MX_NVIC_Init(void);
+static void FDCAN_Config(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -131,24 +131,28 @@ int main(void)
   MX_OPAMP3_Init();
   MX_TIM1_Init();
   MX_TIM4_Init();
-  MX_MotorControl_Init();
   MX_FDCAN1_Init();
+  MX_MotorControl_Init();
+
 
   /* Initialize interrupts */
   MX_NVIC_Init();
-  /* USER CODE BEGIN 2 */
 
-  /* USER CODE END 2 */
+  FDCAN_Config();
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+  TxData[0] = 0x52;
+  TxData[1] = 0xAD;
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+      /* Start the Transmission process */
+      if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, TxData) != HAL_OK)
+      {
+        /* Transmission request Error */
+        Error_Handler();
+      }
+      HAL_Delay(10);
   }
-  /* USER CODE END 3 */
 }
 
 /**
@@ -219,8 +223,11 @@ static void MX_NVIC_Init(void)
   HAL_NVIC_SetPriority(TIM4_IRQn, 2, 0);
   HAL_NVIC_EnableIRQ(TIM4_IRQn);
   /* EXTI15_10_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 3, 0);
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 3, 1);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+  /* FDCAN1 interrupt Init */
+  HAL_NVIC_SetPriority(FDCAN1_IT0_IRQn, 3, 0);
+  HAL_NVIC_EnableIRQ(FDCAN1_IT0_IRQn);
 }
 
 /**
@@ -931,9 +938,57 @@ static void MX_GPIO_Init(void)
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
-/* USER CODE BEGIN 4 */
+static void FDCAN_Config(void)
+{
+  FDCAN_FilterTypeDef sFilterConfig;
 
-/* USER CODE END 4 */
+  /* Configure Rx filter */
+  sFilterConfig.IdType = FDCAN_STANDARD_ID;
+  sFilterConfig.FilterIndex = 0;
+  sFilterConfig.FilterType = FDCAN_FILTER_MASK;
+  sFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
+  sFilterConfig.FilterID1 = 0x321;
+  sFilterConfig.FilterID2 = 0x7FF;
+  if (HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* Configure global filter:
+     Filter all remote frames with STD and EXT ID
+     Reject non matching frames with STD ID and EXT ID */
+  if (HAL_FDCAN_ConfigGlobalFilter(&hfdcan1, FDCAN_REJECT, FDCAN_REJECT, FDCAN_FILTER_REMOTE, FDCAN_FILTER_REMOTE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* Start the FDCAN module */
+  if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_TX_COMPLETE, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* Prepare Tx Header */
+  TxHeader.Identifier = 0x321;
+  TxHeader.IdType = FDCAN_STANDARD_ID;
+  TxHeader.TxFrameType = FDCAN_DATA_FRAME;
+  TxHeader.DataLength = FDCAN_DLC_BYTES_2;
+  TxHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
+  TxHeader.BitRateSwitch = FDCAN_BRS_OFF;
+  TxHeader.FDFormat = FDCAN_CLASSIC_CAN;
+  TxHeader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
+  TxHeader.MessageMarker = 0;
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.
