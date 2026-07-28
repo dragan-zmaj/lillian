@@ -71,18 +71,6 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 		bear -- make 
 
 	-> building project this way creates compile_commands.json in root, which clangd can access to make whole code accessible in debugging
-	
-
-### remaining to do
-	- HAL2Cyphal binding
-	- DSDL Generation
-	- Application mapping - start/stop, rpm control
-	- Host(Yakut) Integration
-#### risks
-	polling or interrupt CAN ?
-	---> HYBRID APPROACH <---
-	- CAN interrupt very swiftly transfers data from hardware FIFO to software ring buffer
-	- Libcanard executed in polling fashion
 
 ### command to generate messages for C from dsdl
 	nnvg --target-language c \
@@ -98,8 +86,18 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 ### command to generate messages for host Yakut
 	yakut compile ../public_regulated_data_types/uavcan ./tool/cyphalMessages --output=./tool/cyphalHost
 
-
 ### testing CAN Tx
-	sudo slcand -o -c -s8 /dev/ttyACM0 can0
+	sudo slcand -o -c -s8 /dev/ttyACM4 can0
 	sudo ip link set up can0 txqueuelen 1000
 	candump -tz can0 # terminal 2 dedicated just for monitoring
+
+### remaining to do
+	- HAL2Cyphal binding
+	- DSDL Generation
+	- Application mapping - start/stop, rpm control
+	- Host(Yakut) Integration
+#### risks
+	polling or interrupt CAN ?
+	---> HYBRID APPROACH <---
+	- CAN interrupt very swiftly transfers data from hardware FIFO to software ring buffer
+	- Libcanard executed in polling fashion

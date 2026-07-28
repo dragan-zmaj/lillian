@@ -145,13 +145,15 @@ int main(void)
   TxData[1] = 0xAD;
   while (1)
   {
-      /* Start the Transmission process */
+    /*
+      //Start the Transmission process 
       if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, TxData) != HAL_OK)
       {
-        /* Transmission request Error */
+        // Transmission request Error 
         Error_Handler();
       }
       HAL_Delay(10);
+     */ 
   }
 }
 
@@ -614,7 +616,7 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Instance = FDCAN1;
   hfdcan1.Init.ClockDivider = FDCAN_CLOCK_DIV1;
   hfdcan1.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
-  hfdcan1.Init.Mode = FDCAN_MODE_EXTERNAL_LOOPBACK;
+  hfdcan1.Init.Mode = FDCAN_MODE_NORMAL;//FDCAN_MODE_EXTERNAL_LOOPBACK;
   hfdcan1.Init.AutoRetransmission = ENABLE;
   hfdcan1.Init.TransmitPause = DISABLE;
   hfdcan1.Init.ProtocolException = DISABLE;
@@ -626,8 +628,8 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Init.DataSyncJumpWidth = 1;
   hfdcan1.Init.DataTimeSeg1 = 1;
   hfdcan1.Init.DataTimeSeg2 = 1;
-  hfdcan1.Init.StdFiltersNbr = 0;
-  hfdcan1.Init.ExtFiltersNbr = 0;
+  hfdcan1.Init.StdFiltersNbr = 1;
+  hfdcan1.Init.ExtFiltersNbr = 1;
   hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
   if (HAL_FDCAN_Init(&hfdcan1) != HAL_OK)
   {
@@ -962,12 +964,6 @@ static void FDCAN_Config(void)
     Error_Handler();
   }
 
-  /* Start the FDCAN module */
-  if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
   if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK)
   {
     Error_Handler();
@@ -988,6 +984,12 @@ static void FDCAN_Config(void)
   TxHeader.FDFormat = FDCAN_CLASSIC_CAN;
   TxHeader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
   TxHeader.MessageMarker = 0;
+
+    /* Start the FDCAN module */
+  if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
 
 /**

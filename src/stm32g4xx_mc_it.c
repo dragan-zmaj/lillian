@@ -28,35 +28,26 @@
 #include "mc_tasks.h"
 //cstat +MISRAC2012-Rule-3.1
 #include "motorcontrol.h"
+#include "main.h"
 
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
-/** @addtogroup MCSDK
-  * @{
-  */
+// @addtogroup MCSDK
 
-/** @addtogroup STM32G4xx_IRQ_Handlers STM32G4xx IRQ Handlers
-  * @{
-  */
 
-/* USER CODE BEGIN PRIVATE */
+// @addtogroup STM32G4xx_IRQ_Handlers STM32G4xx IRQ Handlers
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
-/* Private functions ---------------------------------------------------------*/
 
-/* USER CODE END PRIVATE */
+extern FDCAN_HandleTypeDef hfdcan1;
 
 /* Public prototypes of IRQ handlers called from assembly code ---------------*/
 void ADC1_2_IRQHandler(void);
 void TIMx_UP_M1_IRQHandler(void);
 void TIMx_BRK_M1_IRQHandler(void);
 void SPD_HALL_TIM_M1_IRQHandler(void);
+void FDCAN1_IT0_IRQHandler(void);
 
 #if defined (CCMRAM)
 #if defined (__ICCARM__)
@@ -186,15 +177,10 @@ void TIMx_BRK_M1_IRQHandler(void)
   /* USER CODE END TIMx_BRK_M1_IRQn 1 */
 }
 
-/* USER CODE BEGIN 1 */
 
-/* USER CODE END 1 */
+void FDCAN1_IT0_IRQHandler(void)
+{
 
-/**
-  * @}
-  */
+  HAL_FDCAN_IRQHandler(&hfdcan1);
 
-/**
-  * @}
-  */
-/******************* (C) COPYRIGHT 2026 STMicroelectronics *****END OF FILE****/
+}
