@@ -18,7 +18,11 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "canRingBuffer.h"
 #include "stm32g4xx_hal_fdcan.h"
+#include <stdint.h>
+//#include "stm32g4xx_hal_fdcan.h"
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -60,6 +64,9 @@ OPAMP_HandleTypeDef hopamp3;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
+
+canRingBuffer g_canRxRingBuffer;
+volatile uint32_t g_canRxOverflowCount = 0;
 
 FDCAN_TxHeaderTypeDef TxHeader;
 uint8_t TxData[8];
@@ -134,19 +141,31 @@ int main(void)
   MX_TIM4_Init();
   MX_FDCAN1_Init();
   MX_MotorControl_Init();
-
-
   /* Initialize interrupts */
   MX_NVIC_Init();
-
+  canRingBufferInit(&g_canRxRingBuffer);
   FDCAN_Config();
+  
 
-  /* Infinite loop */
-  TxData[0] = 0x52;
-  TxData[1] = 0xAD;
+
+
   while (1)
   {
+    canRxFrame rxFrame;
+
+    if (canRingBufferPop(&g_canRxRingBuffer, &rxFrame))
+    {
+      //frame received
+      if (rxFrame.identifier == 0x12345678) {
+        if (IDLE == MC_GetSTMStateMotor1()) {
+          /* Ramp parameters should be tuned for the actual motor */
+          (void)MC_StartMotor1();
+        }
+      }
+    }
     /*
+      TxData[0] = 0x52;
+      TxData[1] = 0xAD;
       //Start the Transmission process 
       if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, TxData) != HAL_OK)
       {
@@ -156,6 +175,24 @@ int main(void)
       HAL_Delay(10);
      */ 
   }
+}
+
+
+void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
+{
+  FDCAN_RxHeaderTypeDef rxHeader;
+  canRxFrame frame;
+  const uint8_t fifoSize = HAL_FDCAN_GetRxFifoFillLevel(&hfdcan1, FDCAN_RX_FIFO0);
+
+  for (uint_fast8_t cnt=0; cnt < fifoSize; cnt++ )
+  {
+    HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rxHeader, frame.data);
+    frame.identifier = rxHeader.Identifier;
+    frame.dlc = (uint8_t)(rxHeader.DataLength >> 16U);
+    if (!canRingBufferPush(&g_canRxRingBuffer, &frame)) g_canRxOverflowCount++;
+  }
+  
+
 }
 
 /**

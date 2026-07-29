@@ -90,6 +90,7 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 	sudo slcand -o -c -s8 /dev/ttyACM4 can0
 	sudo ip link set up can0 txqueuelen 1000
 	candump -tz can0 # terminal 2 dedicated just for monitoring
+	cansend can0 12345678#11223344  #for testing ringBuffer
 
 ### remaining to do
 	- HAL2Cyphal binding
