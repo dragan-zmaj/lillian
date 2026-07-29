@@ -100,7 +100,9 @@ libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/G4xx/Src/r3_2_g4xx_pwm_curr_fdbk
 libs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Src/potentiometer.c \
 src/sysmem.c \
 src/syscalls.c \
-libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c
+libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c \
+libs/libcanard/canard.c \
+libs/o1heap/o1heap.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -169,8 +171,9 @@ C_INCLUDES =  \
 -Ilibs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/G4xx/Inc \
 -Ilibs/drivers/CMSIS/Device/ST/STM32G4xx/Include \
 -Ilibs/drivers/CMSIS/Include \
--Ilibs/drivers/CMSIS/DSP/Include
-
+-Ilibs/drivers/CMSIS/DSP/Include \
+-Ilibs/libcanard \
+-Ilibs/o1heap
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections

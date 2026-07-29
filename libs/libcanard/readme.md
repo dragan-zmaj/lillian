@@ -1,0 +1,2 @@
+git@github.com:OpenCyphal/libcanard.git
+120600375535b6a383fbe99a9d77c04b7a65e81a
