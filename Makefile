@@ -57,6 +57,7 @@ src/hall_speed_pos_fdbk.c \
 src/mc_app_hooks.c \
 src/speed_potentiometer.c \
 src/stm32g4xx_hal_msp.c \
+src/canRingBuffer.c \
 libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c \
 libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c \
 libs/drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c \
