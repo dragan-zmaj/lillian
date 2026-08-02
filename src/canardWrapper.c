@@ -63,7 +63,7 @@ static bool vtableTx(canard_t* const      self,
     (void)user_context;
     (void)deadline;
     (void)iface_index;
-
+    
     TxHeader.Identifier = extended_can_id;
     //TxHeader.DataLength = ((uint32_t)can_data.size << 16U);
     return (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, (uint8_t*)can_data.data) == HAL_OK);
@@ -182,7 +182,7 @@ bool canardWrapperPublish_13b(const uint16_t      subject_id,
     };
 
     const canard_us_t deadline = vtableNow(&g_canard) + 1000000LL; // 1 second deadline
-
+    O1HeapDiagnostics diagnostic = o1heapGetDiagnostics(g_o1heapInstance);
     bool ok = canard_publish_13b(&g_canard,
                                  deadline,
                                  CANARD_IFACE_BITMAP_ALL,

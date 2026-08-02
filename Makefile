@@ -22,7 +22,7 @@ TARGET = lillian
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -O3
+OPT = -Og
 
 
 #######################################

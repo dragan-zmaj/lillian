@@ -152,7 +152,7 @@ int main(void) {
   {
     /* 4. Drain SPSC buffer into Cyphal engine, trigger callbacks & flush TX */
     canardWrapperProcess(&g_canRxRingBuffer);
-
+    
     /* 5. Application tasks (e.g., Publish message every 1 second) */
     if (HAL_GetTick() - last_pub_time >= 1000U) {
       last_pub_time = HAL_GetTick();
