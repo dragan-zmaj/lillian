@@ -1,18 +1,36 @@
 // src/canard_platform.c
+#include "main.h"
 #include "o1heap.h"
 #include "canRingBuffer.h"
 #include <stdalign.h>
 #include "stm32g4xx_hal.h"
 
 // Memory pool definitions using O1Heap
-#define O1HEAP_POOL_SIZE_BYTES        4096U  // Single pool for all allocations
+#define HEAP_ARENA_SIZE_BYTES (8u * 1024u)  // Single pool for all allocations
 #define CANARD_IFACE_COUNT 1U
 #include "canardWrapper.h"
 
-static alignas(O1HEAP_ALIGNMENT) uint8_t g_o1heapPool[O1HEAP_POOL_SIZE_BYTES];
+// ==================== Allocator abstraction ====================
+
+typedef void* (*AllocFunc)(void* ctx, size_t size);
+typedef void (*FreeFunc)(void* ctx, void* ptr);
+
+typedef struct
+{
+    const char* name;
+    void*       ctx;
+    AllocFunc   alloc;
+    FreeFunc    free;
+    bool        has_diagnostics;
+} Allocator;
+
+//static alignas(O1HEAP_ALIGNMENT) uint8_t g_o1heapPool[O1HEAP_POOL_SIZE_BYTES];
+//static alignas(O1HEAP_ALIGNMENT) uint8_t heap_arena[HEAP_ARENA_SIZE_BYTES];
+uint8_t heap_arena[HEAP_ARENA_SIZE_BYTES] __attribute__ ((aligned (O1HEAP_ALIGNMENT)));
 
 // Static storage for heap and ring buffers
-static O1HeapInstance*  g_o1heapInstance = NULL;
+//static O1HeapInstance*  g_o1heapInstance = NULL;
+static O1HeapInstance* o1heap = NULL;
 
 extern FDCAN_HandleTypeDef hfdcan1;
 extern FDCAN_TxHeaderTypeDef TxHeader; 
@@ -23,14 +41,14 @@ extern FDCAN_TxHeaderTypeDef TxHeader;
 static void* memAlloc(canard_mem_t memory, size_t size)
 {
     (void)memory;
-    return o1heapAllocate(g_o1heapInstance, size);
+    return o1heapAllocate(o1heap, size);
 }
 
 static void memFree(canard_mem_t memory, size_t size, void* ptr)
 {
     (void)memory;
     (void)size;
-    o1heapFree(g_o1heapInstance, ptr);
+    o1heapFree(o1heap, ptr);
 }
 
 /* Global memory vtable instance */
@@ -92,7 +110,7 @@ static void on_heartbeat_msg(canard_subscription_t* const self,
 
     // Mandatory: Release memory allocated during multi-frame reassembly
     if (payload.origin.data != NULL) {
-        o1heapFree(g_o1heapInstance, payload.origin.data);
+        o1heapFree(o1heap, payload.origin.data);
     }
 }
 
@@ -104,9 +122,15 @@ static const canard_subscription_vtable_t g_sub_vtable_heartbeat = {
 
 bool canardWrapperInit(void)
 {
-    g_o1heapInstance = o1heapInit(g_o1heapPool, sizeof(g_o1heapPool));
-    if (g_o1heapInstance == NULL) {
-        return false;
+    //g_o1heapInstance = o1heapInit(g_o1heapPool, sizeof(g_o1heapPool));
+    o1heap = o1heapInit(heap_arena, HEAP_ARENA_SIZE_BYTES);
+    if (o1heap == NULL)
+    {
+        while (true)
+        {
+            // 01heapInit error
+            Error_Handler();
+        }
     }
 
     const canard_mem_t mem = { .vtable = &g_mem_vtable, .context = NULL };
@@ -146,6 +170,8 @@ bool canardWrapperInit(void)
     return true;
 }
 
+
+
 void canardWrapperProcess(canRingBuffer* const rx_ring)
 {
     canRxFrame rx_frame;
@@ -182,7 +208,8 @@ bool canardWrapperPublish_13b(const uint16_t      subject_id,
     };
 
     const canard_us_t deadline = vtableNow(&g_canard) + 1000000LL; // 1 second deadline
-    O1HeapDiagnostics diagnostic = o1heapGetDiagnostics(g_o1heapInstance);
+    O1HeapDiagnostics diagnostic = o1heapGetDiagnostics(o1heap);
+    bool a = o1heapDoInvariantsHold(o1heap);
     bool ok = canard_publish_13b(&g_canard,
                                  deadline,
                                  CANARD_IFACE_BITMAP_ALL,
