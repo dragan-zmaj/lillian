@@ -18,9 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "canRingBuffer.h"
-#include "canardWrapper.h"
-#include "stm32g4xx_hal.h"
 #include <stdint.h>
 // #include "stm32g4xx_hal_fdcan.h"
 
@@ -142,8 +139,8 @@ int main(void) {
   /* Initialize interrupts */
   MX_NVIC_Init();
   canRingBufferInit(&g_canRxRingBuffer);
-  if (!canardWrapperInit())
-    Error_Handler();
+ // if (!canardWrapperInit())
+   // Error_Handler();
   FDCAN_Config();
 
   uint32_t last_pub_time = HAL_GetTick();
@@ -151,16 +148,16 @@ int main(void) {
   while (1) 
   {
     /* 4. Drain SPSC buffer into Cyphal engine, trigger callbacks & flush TX */
-    canardWrapperProcess(&g_canRxRingBuffer);
+    //canardWrapperProcess(&g_canRxRingBuffer);
     
     /* 5. Application tasks (e.g., Publish message every 1 second) */
-    if (HAL_GetTick() - last_pub_time >= 1000U) {
-      last_pub_time = HAL_GetTick();
+   // if (HAL_GetTick() - last_pub_time >= 1000U) {
+     // last_pub_time = HAL_GetTick();
 
-      uint8_t dummy_data[4] = {0xDE, 0xAD, 0xBE, 0xEF};
-      (void)canardWrapperPublish_13b(1620U, dummy_data, sizeof(dummy_data),
-                                      canard_prio_nominal);
-    }
+     // uint8_t dummy_data[4] = {0xDE, 0xAD, 0xBE, 0xEF};
+    //  (void)canardWrapperPublish_13b(1620U, dummy_data, sizeof(dummy_data),
+     //                                 canard_prio_nominal);
+    //}
   }
 }
 

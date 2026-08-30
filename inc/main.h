@@ -29,7 +29,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32g4xx_hal.h"
 #include "motorcontrol.h"
-#include "canRingBuffer.h"
+#include "cyphal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

@@ -1,2 +1,3 @@
 git@github.com:OpenCyphal/libcanard.git
-120600375535b6a383fbe99a9d77c04b7a65e81a
+d362f195c074f37056dfe5aef33e4558da3cd53a
+stable release v4.0.0
