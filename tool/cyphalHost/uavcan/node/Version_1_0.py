@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/public_regulated_data_types/uavcan/node/Version.1.0.dsdl
 #
-# Generated at:  2026-07-21 22:07:53.131789 UTC
+# Generated at:  2026-09-03 11:10:39.351702 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     uavcan.node.Version
@@ -133,21 +133,21 @@ class Version_1_0:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.StructureType = _restore_constant_(
-        'ABzY8x$R$S0{`um>u%IW6vuayO|sm=q2W$j473n>G540zdyy(CH#7oT@ueD#?P15rYg_g>%_3DQA6kJlQX?^ycmy7SN8k~71RjBp'
-        'o!R|QNJH}mM2ddLmoszb%>2B6^!}Nj?~MQS(Q1@7X&$mh)EUpSdpyoX$dYncl})CE(YtP{x=mDDi(8{gm`CRHee=6n)HAH$L;HN8'
-        '<tqs<!lFz?_=~8UtSpS~vlWE0qv!nXM<(h<oxjX|qjxZ_RGr1G5{>!Qj<-c6>u(u7^L-}r^i>7hS;`e>%9XWMdR1q`Ol2#s(4UJY'
-        '8x$h_p-^HV>i;fh2a7Ysa#0MFG*RCUp72Jop<R`cd-eWhKaficui9rz?vY(l=TCFP=)J5_yhwSSZXD=A8_O9zGvs&6+UOoj%f#r8'
-        'v3F@QuUwG(5gm&9^00hY9`#9CVUy%BdAyB<Uf9qt7LO*)cWHs#BTvZ_tzAJXs#+vmiPSvQ^XyKxDpFRJwPIOnuIoLlDcd>`_CYRK'
-        '#ch3h&LPiYqqi;F4PRY$cOTh)bkEp&W$AXfchA;uUk#H{C3$Z2k*baJEMc`6w7Hw^)kZW%&rS}6&2vY>Xu|G?=fbn0+ase~!xot2'
-        'jjf^<g>sv=k|n}Cl*jbLZ-YkKqJ`b6pb<k}s4NL^oPye|v9UQ^*~=?IS>&T&+~2^qKNvSH+<r@npsGt%CS@KB>_|1w?R#k{nxH6E'
-        'kd#Ft>LSQgBl0`JZ<&&TayeWj($5vz+Q)sK=up^6Cr5Sj3fIrK&<DnSWvXO#S*me%Q*pa8d1g_bmFMJnc|l&3m&PsVu{gI4JL!+^'
-        'tAk@3qBdU}z4N<F{W!k9X)kef^)xFhql2vmX-31iw7X?Hz9fdF6~i^|r^>cO+4Hq7z${B-X7!Sh-o4DzG%E(Ly(E|A(s~r>eOGN8'
-        '?fw`4JEYz=8PRUA>)M9Q8ym*heZ9?dUXNbOo@FaMZ-x2WEJppcCbplHYEqW{h_tb7p51F_stx$63+9}y_CUI^qpr*AtVL7cwByuT'
-        ')Wh|R<MdiIi~Dnq-L<HX=i4UpM%%$1;7)KCI1lay3ETs|1ulSl!F}L<@BnxaJOmyFkAQE3?||=uN5KF*1|A1bfbW6tgD1gL;39Y$'
-        '`~dtA{0RIQ48b$tS@0Zq9=rfv1TTS~fS-bw!Oy@e;OF2M;FsW6;Md?c;5G0zD8W_m0r(hv0zL(wfzQDg;L8b@`dtJEeX!_*%Rac~'
-        'gWEokK3Mg^10Ov0!4n@m^}#bAJomv1AG}1++8->jTJd819m2g>#$%VH@Dhn8mNFul+5fv+YSP`LNf(;*pvlxGP3EA<EHs&cCOv2}'
-        '4Naz?Nf(-Qpb0?}f+hq_2$~QyA!tI-grEsQ6M`lLO$eG0G$Ck0(1f4~K@)-|1WgE<5HulZLePYu2|*KrCIn3gnh-Q0XhP70pb0?}'
-        'f+hq_2$~QyA!tI-grEsQ6M`lLO$eG0G$Ck0(1f4~K@)-|1WgE<5HulZLePYu2|*KrCIn5$YeHTV@|uv>guEu?H6gDFc}>V`LS7T{'
-        'nvmCoye8x|A+HH}O=zu^DA>9&i2Cgt8{XLP#s+Ic6Sr~rFH%(s&lwH?00'
+        'ABzY8000000{`umTW=Lr6vxl$_0U3DwcJ%0K%sb<11gGmK_w_U6dOUqgJx&X%%*$HoSDhYp4vlVA`hB2*@;cMP520W1fG53Bk&RU'
+        '2t2yyod2e^*cYGMr1`D6tbJK~{pS2O_Sd<Y*5FT{DEe^~r#`Dhnea5Z$HP?kEXsRDUL{Hxz3-MP>qyn5xZN*=*)Zqsn_tbm9%mWv'
+        '+2?aLUygX@XL&6AA4FLtd1iEnEhCgIJ?U<5n4lfB{xJ8Ao@QLBG6`!XD)W;aZ-<pUf6M6cFB6f*n=6=NF;|?aW?4I>7iH2*RI=PG'
+        '^!uzzmNF54ohh*-%71TXnuUpCsmPX;G(pD>9`Q=Cp52v^2lSyuH&B!2U$xH`nn!j=t>4XeMjv36;#thgc<Vr`btuR6c#r>_mqw4V'
+        'IFF2O8GDz8^U67S2+`4?Bag}B@`OuDGMgk%%2RbH^xT$uv9LcZev{_OS$S5TuI&zDQIsO$O2lSO&#=46iilZ}mx?8^xv6JamDgn?'
+        '?1NOWg4^}!$p&c>8og)H9{9>)b9ck&peys9=-#s{@A^@{kUZ@cb(kg*E5%ZsHj`|Yzv>Q~pxZP-7pLuC@X!0rnV3O==9uJ_owXF1'
+        'Y7S{RiG*2`C-vIrUM1}!g*_Ut5<Q-&B=XQcUfJxavN>GY%gbJ#rG0NuPtTUy8x+Z(x-ErQl)1{IJoT3BNF`70dvPu*FUyq|<yj=k'
+        '%u7@y(!1U-iISdba=415o69$v26Y{_e`Y5gw&uieclH3A{h7^v7W(j@j!fmO%yTu!t_p5<CcFCL|El4zT4O9sE2Gc2uHNh^TRXM='
+        '+UUJsB<jZC`j)*!SL;!h7e;$K4N~=cVQ!aW4`)I2a_dY}<8KRFJ!M<(xf>HKl8H4>Ueo&*c^oI%(hD!iZ{%0cqig!$Ra<ep!R$YW'
+        ')O&^_+Foc1ye0F-mNE9<tkaa2{TH$)*fLLRVg5ApL1(=R?boIlF3Wyj>d+R?wnZbc4fskEOg19hiZ^2i?Iy3a9*lsa4M*04F<g%~'
+        '99<74aDTF4dp+pj`JUmt!4x<R?gjUOGvI!Zz*+Dma1J~G9t018hruJ@QScb}GWZJkDtH_`0eav`@Dz9&d<}dZJOiEu=fQK}8{nJZ'
+        'Tj1NE4|c)x;05p<@Lljd@FMs=_yKqc{1Chhegu9Degb|9UI9M?uY-3$39f*v-~;d>_y~LqJ^`PC&xTy+v=JO}!MqDDx!}4B?zlj@'
+        'V8sQiE_mRAhc0;Jg2yg+;)16xc!r?1zhz>j;Mw4lg?pj=ap00<P9jl-G7LyY_CMZHllC@E+R$VSnv87IWD=T8K$CH3G6qdXp~(m|'
+        'X+x71G$Ck0(1f4~K@)-|1WgE<5HulZLePYu2|*KrCIn3gnh-Q0XhP70pb0?}f+hq_2$~QyA!tI-grEsQ6M`lLO$eG0G$Ck0(1f4~'
+        'K@)-|1WgE<5HulZLePYu2|*KrCIn3gnh-Q0XhP70pb0?}f+hq_2$~QyA!tI-grEsIO~`3NP7`vPkkf>mCge0BrwKVt$Z0}O6LOl6'
+        '(}bKR<TN3t39Z-iZv>&_L8soeVb_LT8>|ggScm>UscBBBG!6g&'
     )
     assert isinstance(_MODEL_, _pydsdl_.StructureType)

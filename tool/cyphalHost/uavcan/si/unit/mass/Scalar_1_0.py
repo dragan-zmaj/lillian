@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/public_regulated_data_types/uavcan/si/unit/mass/Scalar.1.0.dsdl
 #
-# Generated at:  2026-07-21 22:07:53.747597 UTC
+# Generated at:  2026-09-03 11:10:39.439533 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     uavcan.si.unit.mass.Scalar
@@ -115,14 +115,14 @@ class Scalar_1_0:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.StructureType = _restore_constant_(
-        'ABzY8x$R$S0{?weO-~d-5M6Zn5L6@(P4plqTrVT2_yaWIvH}|+-b|-vy4h~*nV$5=W|xFS4iYh)XhQjWv3hrL5rcE->Zz(%^{QTf'
-        'Y5v-5Hiln(S`WD6I%7^)1zH_Ju0_TQQ`W{QFEHNQ^EMPdSg}8-1)k&c6FkONoMsi2<bNEXS3s3Hm4!<AtOVz>y#h2?jB~6ftW%~!'
-        '*@&|r$M!k4r`nBEJi)lYz<aCm;Dy6acvC-rf-p{RDWUnKk9o$y1M{i5o6>8mO666LBJONy1O9I+3oKWjX;F2(#P%vd7T`Q94Hqa^'
-        ';=|5mdP>XQk#9S>h(_Zpe!#fGoQH~o<yV2e5l#tRnn~cP@PUQG6MaWx*&5q~@qMXr^}D#ZXtbwJ2{z<%I?jDo+H@_H7@Lfn0%L<5'
-        '5SOpajpc*UE{;*I$t6d8xTvitzzdFN@jg3HeZg66tY?bjPF!Nn1X~DlXu)crZsTk^w92W|4z0f5Nq^62I#VyGwlrzi&7%?yDKskv'
-        'wFHgvNgZ;n3T8z&=u~d945B$Rk_N_GPEm4_2OUWu7#Bwp$u_d}EUgTEn&dK*;HV)hDxY@PQ-#1Y`AoLrgCWO}GAnW?xwQUUVrHyD'
-        '5g!dXGH;kQ#t(s94FoOMTXI9bl&|D#xhdZaduXy;Q})`WlqM^sj{NmI#=CEoe?PqM(RD1Uc$=9T<LXTyZcyfiCP$RFMQKQ=Ne;WU'
-        'u;7iINOOi2Qjy%{Zd~jD=c?-d6D0SOcPD5fJGky8gdXT1@CUZqt3O>%Z?YZ%VS6s*M7LB`Qau^aPsVIgKCLrl&oj}lp&CBhoshdc'
-        '<k@do&)e5P1ONa'
+        'ABzY8000000{@*;OHUL*5MFe72)+nJ6EAYY^)dqo|9~cVSilV!Z>Cc--E6n^Oi%i;*(D*7gG5Xxno#~;tlnK*#BgygT|L$HRee=o'
+        'eQE#NZMVi>eBO+><2qwbSOr=gL!m{+N>eq)DK9WSIP^A@K3MU7)Cj!5m#27wojA{GsL1~;z@UUWb1Dn9@>vDWWrrnbuo#!vKv<_t'
+        'jj|ONKTPcl?9O#tXLyQng@N~06~POKAMv(&{yf4szoUfavpSX;2M^4r;%*CXtg4h(1A1|9M;q{eQ(0k!@=S}m?<ICO2(kp{S!K9D'
+        'xgMYNuEJAT_J(|W$wf3;U-1CrI&&Us4whdB`bIbv^r<I-r^H7VN>B71wPj~&6UO(|*7fi5^0L*PJ0sXo$oaVRS!vU^P+@E{Zc2<T'
+        'azI?W);Cs+CbKv}xhYp2@!_Jeq69BEp2vsmNDT#Njj^67j{9+yITLIt$e{&mfU1p)>Cmd6N_#Z=VK4o?z<7{LQ;Gbzf=_u?jv5I%'
+        'Z$hC}$*kxHos!H(;PQzaa;Nenhdjw4pU5HG&bG2N9vpXVjY)8n+=|+#c@0!4@Lax-o%ndnXQINI+({apxG;gnc*iMfM}ns#CBV2a'
+        'Rh)=V$9$MK%o^jzK&}CTmRs@Fe{q?V+h&EPM4ML%n@yUE_c!kt@4r@lcYHsj>r`v;E;9|rjoU!ns45JVL*3aEl_C8mmAq?&1#j$3'
+        'u?wt}inc($jgNZ3xvKmBJd(S~yB{?5WpvX^2m{bT;1BF{H-5T;R<)S`VRtDMM7L6PS_U#;n2g1=5Y(d-z0Ab0fqJ~n`=M|}D6-%0'
+        'w?mRw1ONa'
     )
     assert isinstance(_MODEL_, _pydsdl_.StructureType)

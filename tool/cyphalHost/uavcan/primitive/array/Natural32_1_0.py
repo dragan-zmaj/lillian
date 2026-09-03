@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/public_regulated_data_types/uavcan/primitive/array/Natural32.1.0.dsdl
 #
-# Generated at:  2026-07-21 22:07:53.461048 UTC
+# Generated at:  2026-09-03 11:10:39.154752 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     uavcan.primitive.array.Natural32
@@ -137,27 +137,26 @@ class Natural32_1_0:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.StructureType = _restore_constant_(
-        'ABzY8x$R$S0{`t<TW{Rf5nkRY%NN<Qt;BYsjbl4>;;iqEbM3YU3Ki3FRHw~bL2-9abl7sq1<4hx00EST779S12hi!e9`!TysDF_5'
-        'O>NRvKcjP&tIJlFZP}8Hw$jUzXXg9nn>mNv9nGBi=X>Lo-d{1^nQdjQsOD!Z4TC8BI%q_!<~NgeC&|K`$>P`-dD?B}-IV=$w!`Ft'
-        'y!x&DMtX(i$3dIy)ow7;4B}cR4clQJ&ahgLron9OVL+H5x_wI)u0O-lEKFj_D~0oA|9U}!29-a`Z)Gv;2YH@`jc(2|`CGY@stqSu'
-        'SU(S0)Y?>Y#BT+8;O9zWaefE5(j|+rF9TYom0z-WI_E!CtAnW>^I62&EYACUJIL9{SQewdiL-DzX02buIh$tbAm6ax2y;K`g_BSv'
-        'vCSaM{dUq~lAkNiPOcLvSnUDXP?@Mel|RTwvN-K$c@VdPw6&FJzS}5<h^Z4a!+cgky*Sl3`CqBxl;Zh?QUo6dmsj~k&=e)Vtk9<4'
-        'h%#ARSx;}1oHEV-^IjH5e-`Ft(Y~PDetL!BCmlKlJCS6w?M4!XO)3(yc0$F=Y4<<xur$b%bhAjd-{c`}DZgEud62}-AZPItT~*S`'
-        'Gi5QI6_5N+JnTkMkj`%NwEdYN>N5E!>47V<2EW@c#(hGKJqqG!_K0;@9_}RR_kKHgOr<42y|>68D6T4T_3GCSW7;HjL2g)a3rFp0'
-        'HwqLUH04_np!YwG-Y1=UU4YqNvo_Yi08@Zn-s|ex8L)u`wg9(}8`@?AhjN4?8+clw`{5`0!4Mn~aJ00!D%P<b{a_f53OGK%ORKbY'
-        ';;9%o2FC@A^!1*6rZ1d;5do*R#UTr=k3JV3PQobxr%PXx>_-*$%yVO56iy2``$P?7CEM7pxZn(&74X`6ok`2<yT-#9ye8n>j+)4W'
-        '?B`#I7hZ>R0xk^Hi>$==#tZYodAK0p&8O-mFY+0GsTlAEyeXjCKVNUXG#8B1a}5_up6b(-tGI9PNj!K9E(*A`9&^hMsQO&qvl#F;'
-        'ToQ2QnR`NrDtVLdJ9`=%F2fZ8-g=(&B&aiXb<bnKJKza;_qp>V1o^+WFFN2Vyer_^=H6Z+PH*e}zQ1pA;XSw}pth?z5Q;F@_f-?T'
-        '4>bWd$`~W+dAqsq@!&e#5O8bPwIC$nZXbv~xCyre+}VCst`YZ*_49J~z_h?^xFg`+3)PI!g#F+^wZdJvC*c0(`^D?kjovXI9=Hzp'
-        '0PYL;=!I)X421vqmFR{K;UfW`?0gRIP>lQPEPndR^ufpQiGa^us=mZR96x!bIl!mznSgq~)}l*oA$!~j;$CxHuFhda!#NErI?m}>'
-        'F>ubniivY3PFc8W;gpT5HcmMtViBtvE^1iSaZ$&rfr|!KO<XjwLaq+ZSy-`g&c+H|J5YyZtZTTeVO_^%9qR@z8(24S*~BWjy0~az'
-        ')y72|s}3$YFa@hPrQxcEQ#!8dIA!3ffm0@~npn4R*}}Sw%Qn^>Ty{ja!KmB%oLbIFbY1?d|C(;dRlkGxxf^m1yP@7Mz{+7av@hL|'
-        'yT{#7^;z%Pedva&gFEm)+YMFA{|o$IbweuWOTFDa?1t96A(v3zVK=m`8yY+-huzR_yP@*^;*o9Sup4@bZm9e|I_!oHq8p+bi!NWF'
-        'OY|IEA`$3nIIqDxx;oD5=o&b0pljm1i7O^fSh!;0nuZfLavfJ}T+?yFL2lrRLkgDA({M>cPsb%4Jp-2v^h{hbk(;<?!UU|~goZ0b'
-        'Kxl#z&cF#1U1FtB7P>ah+vqwt@8B8*A#O5R$SIUV4GwTvLrxJaT(Z!!aml6@NX>}2RaoT=sxbXl(v(F-b{j!4x@F?&H)hLO>Nk>q'
-        '&rfE>u-{^xl&KL|OMX`z_rD4svzFgU(%cVQ@?mk(&ysH1WMqh#-wARq3rBrKVM7)}lSvjno>Z#~(kry<6q_e%R%?FU4t__jwdQPx'
-        '2a%eTb{kRH^iww7ja0bJF={3YyBzHj<CamU)gPmt+8FTGZq{zp)bLN{YFat!^B^NpsT!bWES(9POn%4z!v9)~^ztmH%Q2bNu-AKf'
-        'n4!%%GAqV<x%zqHr%96c$g)mA^!#rg|2zMI|H%Kr|H=QQbnt8ZdO5PYH8A!&F&VU4VLZKU+(*`Xg-a27W(jV0u!H3b56eBR{TuwC'
-        'p<qED000'
+        'ABzY8000000{`t<TW{M|5*F`toQo4Dahprcrnx9>D&^j!O<QdPEWDVV#GCF0`?8=Z>D1&dMG7Qk#03ht54&)H1M~nsefOh(h9CV8'
+        '+P-<;{4+Wf<%`yF5<9koZS5D4XXg9nn>mM+#xtY;_;|F`{o|wU>1NstD{jh?zzc(Ky?V$hZX<5B<21;a<VU{Fl1?M*B<!!#Z6@dB'
+        ')$iqZvdj%P@>*nfI^I;niz@9TXa!j?#VTHsc+-_f9$~!j)=kN6cZwxx5J%E4aqDUCdQO4@rT@t9B_DLXEK7oVCu6Dnhulilnv>+l'
+        '9|IOP*VP<yn_lL*SuT;E-2$HLl6>T;N2|2*XBJIn{vYzy{?v}REMzSfWj($v<g8^Z`S9POG?<K7^G{L6CRx(YH|W-b%niHYBse6t'
+        ';iZ||iknROXZY#yRiYeLc}O<QO;n)LzvUCjPr7O5MNKbhZX}xR)cF80wY^4=O-rcp6FrmrO<tTrynn6`;g5ptJN^Ywa!UVFj@I3J'
+        'm`Z+mHNACm$~61md&v)f6=X%xzNXt=dR%kkHXVblNYd$6Jr08g6$x1@rs8F^`;Xf!@v=BsFOumt{D8L9zr{~IjH8B^vFL@adD6LO'
+        '!Xi2=W%57vs1t@>GQG*ubf>(q!{iUL47Nz?{+(Vi?h$I_i5E?>C#=n~U@J-ga$DXrDlGwO-9`Ul&gBqSw|=c4qD{&#$PG(2xAI->'
+        'gkFvZCHE}}P<x+R_mfV&DnRe88Eb2xfiA!-?$!L->a&3XrU1K#8`xw6i*kfRYj|3r`@t9b!2lc*aJaD9d8{K_`oSO^7I3tWmsV-*'
+        '*h?{R1da+A>ghfHN?$kzLjq20ibED!AAT)79ETGEP8Pm8*$?N~Q?HGMVK^z^^b0kRm24y1;(}9fTEIK2btWzEZW|9H@Q#2pTWTT?'
+        'vY*`%FT4w91f1)u7g>q#{EqqHESwYY-b?k87x|37Q4BZ_?+I{v=j;79=7LdruHiz#<Gf6H9`}P?i3jh)1pyaVV{X`iygrw9Ee3o5'
+        '7X@5?<(?42A#d`%va7M-5?mHgUd@x9g#3(M-Srr71<C?GeC<35LH-}@i4M359}2j(zPA^Nv%GPCKi;#r@DW@SP}x=;2t}Cco@#=R'
+        'p(5aV5o0KS-frx9JgCBT0XMf@3qlg^*1qV28*o#=?agQ98gXA=Jui3mO$*$D+XC+HsAhyF>?ixG74E=Y0r%G5FXe9C=pA!^-*vzz'
+        'a8JOeJFXou5dO2bq8skRrve^qeGYF^jC=W6{QRxygU{fBfG^&tzQjTtU%u5G;B)vwK&@A6(V@1GJ!^YWw>d6WXRxH;jDjT<XH+a{'
+        'IHO@n#~B?b3|uyF!o+10CoB>%kB)-#3OXvztLSJruc4#kypAPuwQ$D3l8G}Wmgw4o8Z2T>!9@jYDlV#6({NG4nvRP)I^=5Oyn&91'
+        '^CmhL&RZ}6%Q&InvVs#TE~_}9;j)GkIxg#2GjP$snu&`h)+}7KM5oTE+j>kb=Q!H7|Cj%pZphAm2k&t=WFK@x-CuyEgKlU~x*>a)'
+        'yCLUQ@7X=*hMfK#_|0}hPVs+%-&Hr1=X|ldy9eFSYByvPs(jE5ZR&>l&&okJwB2r~c)yg%HgwPpy+Jord><WjL;KMUQH@2%pQB4G'
+        'Tev_X&{l9(fmyUwoK?}*a8^TG$5|bhbR08q$-or_$4vB9TrzP*#W4$g4VNrZuz+O+7Zfb3xS(QL!vzh?Ixgtw>$sxB7%btKf=fg|'
+        'Xo3<>!!aFgVx>?9+9uALXj?dI;R*#IZZa9@Qz(lX9PnWUeTrb<f`Mfd7ffn_@)?nDaHE((aougk4arNgQ}_7rhKZ+JpDt#p-%0-`'
+        '|9Hv=-6m@%EFXb2<#T@2{U&(Enr=HzGB;?-NBp>(#+{_W$PhBO?Pb2?R{jwNb;$?D<1~0Sp0CbH{`aaMw^;StmiNzUr7_+1y|CKu'
+        ')We|RCTy}3=0Vnnr)jkq=T_H-o7L{vw7NFVt=y<wujHdX*_}-eyS|r_gd`uArYxBX8caU-fA)XjL*1;3S#m_?e6(BUW)Xm7ZkV4M'
+        'z1i%*`qY^5k#1&g7Q0CtXI-+i?Ge5IUw&stS#>4**ZgWR%e&b(4?H&RHJd>+xoHka*1Oy$F<r9+yVKv=`g4zp&93|kq8cf)S|0!a'
     )
     assert isinstance(_MODEL_, _pydsdl_.StructureType)

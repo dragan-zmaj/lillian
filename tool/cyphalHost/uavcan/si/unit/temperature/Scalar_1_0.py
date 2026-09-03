@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/public_regulated_data_types/uavcan/si/unit/temperature/Scalar.1.0.dsdl
 #
-# Generated at:  2026-07-21 22:07:53.773167 UTC
+# Generated at:  2026-09-03 11:10:39.581969 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     uavcan.si.unit.temperature.Scalar
@@ -115,14 +115,14 @@ class Scalar_1_0:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.StructureType = _restore_constant_(
-        'ABzY8x$R$S0{@LuT~8D-6kT*#5L6@(eegki!S!VXzkYxw#AF3FLVPn#J1yH{XFBP}W|xFS9wcI#Xu|dP;_d9>t{4*MW!m1}bI-Z='
-        '^h@*CyJn;Q;-hNF9oHFg!YZoO5oKCrBsWE6obm$Vojq?u?t>Nk!%Dz8JUxM9XvbMn(gNd;1MTOu%$&+XseI-|Q3*>^LbjJvO)bQE'
-        '(ihe#Q-W;7xsT)ZIdo<^jZ-**xJan?R<YoPgHLcBtv{C_&Tc88`Gn2_;nY*&6UXb)E2|3SRUdEM+R}#lzZESKraaN2?0E^DHH6Hm'
-        '^Q16bfLx9DyO-%HEqjZx?G!>8jj!+l;wo{TmYiBX4fG9h3fjZg1fB{XSekp3@31Xf<27P@Uv5l)7Z(?e&de#o1}0}?>$A{(RYGhM'
-        'ZgPkXJf?AFs%wM|M*}$qxh|I-s^OxtBBx$(IE#15ff@)-Dq}rS9CqR|aVFSYU_c8}QREuu(oZXfJi9pmK{uVAV{c}jVQp#Bz?(+}'
-        'J;bY7KCC3w5Fb{7X_XTzdO@dhlTo0^*2o_aZ#ad?$s;)LDVIQ88u=vK%r>$#H}I*QD@0O<ysRjF8f0JP0?y<U*^c*WsUw$`7*3vP'
-        '|4*gX*pVVWs1*}$h&9I7c&?&YL2k6=rhG16$d~e!d|gv%5~fkg`lYQV<3(cr>K@|lH_E@S_j|Y<8!X-=rh>S39f%ti%wQi;`L-ww'
-        'nl@Quw<d4w#HKBhONG{#yK$*YIag)xpG$H-MR$TmvBRrTMCel;1pI(@XYHqB_&%!<5On4PL%9Wd4PO8*=pZfT(ksB>rtAeG1{E#q'
-        'C%hAwV}WJA0h#ZJ%~J#b00'
+        'ABzY8000000{@*;O-~d-5FK<`5d0z#J&G4xFEeoP4`_mi1>A@+@nAYV)6I5k&-A1}HoGJwa*&AWL=(#2i`6rWyJEOFm#OaRdR4FL'
+        ')tAmM(n*>xJgFzlGL;g`jigE*(_HbC6uPXnm5xKWcj$~SoHzX4q~>q|&rjh5dSQ`Nv_$_?Pe%o<QY%wmNtZfa*4)q-kRBFPQ3GL_'
+        'jJUB<S0IwG^nPkzK!2g1oWUuCRYILJGWU*K_y{+Z_2&_U#a+o2o0YRd7<H7mSmRCMwUMQCa)dAL>?%#&-;7pCE*(+48ae^}O@u6{'
+        'b)?jcgV+d<23O%REPaK({pdm($yay_VS`vlD@F~Q2l|FMB^_dGJd25s3@seex7e25sf`%l*OK|~^71n2FPtH)&&6Wse&%W<D+nFJ'
+        'bO9m3YZ}()x<>LzJCG9)TVl;38^&wH3+gz7^KhRW$uVc7*2WRZ;2^9KtGy{WIus{0#ahEs{3)4ZodcZzco1(dAbiM#E_rrb(ob1h'
+        'Olm<@R{LDZf*3yZDkhl?z-Fx`GApyFiEK_2S*wY3C*4ltjG$@VIuX=j4Te`P4s9e04(H;T=!J(3tyYm0x}!dNq1$GFaLY>UO3Z>P'
+        'n#%*BJ5?VKj~jNxX=1c?4W6wjW)R!q#eXqttL~6o;TX5B)Ha(sa&Xtr5bnN|Zm&5X;&H0GaGU5F!sbmNc2edV%fTk?^HQUhqhj7P'
+        'Jhhprw@V5kaU;a*@L)h0lhyE_M`AB}54^&@Os;zoVMLYZ@B@1N&7U^MwXItq=r8*m>6R!#TnsemI2ucFIj~1DdWG<DO{-?J4}5NO'
+        'pQpb857<ayY6JiP'
     )
     assert isinstance(_MODEL_, _pydsdl_.StructureType)

@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/public_regulated_data_types/uavcan/si/unit/magnetic_flux_density/Vector3.1.0.dsdl
 #
-# Generated at:  2026-07-21 22:07:53.687841 UTC
+# Generated at:  2026-09-03 11:10:39.425058 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     uavcan.si.unit.magnetic_flux_density.Vector3
@@ -130,15 +130,15 @@ class Vector3_1_0:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.StructureType = _restore_constant_(
-        'ABzY8x$R$S0{@j%TTc@~6y8EhK}12kB>Eun!C;~*2BYy&jWuxr8&JH(470mKXLR<Gnc1dGLLv_mF_TEb@%Q4Hwpc*=;3iFH_nh;c'
-        '+xN}4>hD`Mulv}Wc^T_i`b0A&s1#c?l*}hlmgJchhJl@0GpdM8q1c-;XK(;_c3>OkZH=TfLHpf;wj-MQTKGjOjGxd}%8ZD}rYt%n'
-        'W+}py{yK|HrWV1DlQvUYWGQgZ*4O*z0|+XCw+lO9CkZu1iLfwC!)F*);a?}PwT56a9#nRY#MDq?T)FnfkZ`4F3HEYBbXdH^(w5;*'
-        '-KUd1P7x+q!cx-*8&XTIL?Vo6qsK%;X4ITSnIxewM0S%vFo*R;R2!0HF#~?xUTq$QyD<Mb+LoOOXX1T_RV<QdL(`b5_&CrH#BsA0'
-        'rifkQO+_Pvv(z}_M*oZ$KWDt-&*9;r7gTl;wg~M67LwBl_XEMGt&&h;@a>}>2f46abNU_Z`DeoPCbx#K{ci0j$#SrB!$5SIgqai('
-        '*x6;4WH>=r=j)s)iu@SNY>Y%);8OWRduf&BNT{>@M#xvJoj*apiz|hcRF$Wl5UWjP!QdCn2Xp&6#LlZE5h(;4?m#>4P<Q(%B*lQB'
-        ';yk^5jT2^_oTgoht`wmQ<uzMFW}+j;#u+x^;V7w{Jw{s+mOXK70}uF&Mh3(zS1h82#js~DkWEKBl4r^g5yOg|Av!Bm#Lyra$tmvF'
-        '*4>{JA?~(`TI@94*8}XiavyW^%!#kMmC!Hf>PKbHsdRKNLL4tqtcA^Bx`7sOw_`o6f*sKUgPmT%UO7{-V5j?<^&j{PzS|}k$HrO0'
-        'sm2nOlLhLaEg}Yce2FjH>2BA(%Ogdz)9?KMC9NM_6wF@h&ViVWs4O#GXpL+|&AgrG>--&m&p+^w{FAGS-{TA2W%EV;s7H++Cz>>l'
-        'McVp@IB0#0cTwImLokk;eGzQ%2L4_m%&Y#o{XeQUcN#4P000'
+        'ABzY8000000{@*<-A@!T5I=+y5K$375`B;-gNg29@FP5`@l0I63n*`<bhqVN?S7=~UhYUp<Ut~)i6o4FFHUz44-j75<Z|7encvKB'
+        '<~RK|_Is(>s2=yA=rhAqKn&NCD!EN##RHP$X^|UgIk@R{tINcent$vU91h{pF6_X(Ym$tnXn$PNZbGxb$e_%m4N}_4xRnXnQe}@Y'
+        'o*_&>*x-rH^&+?l(&gI7JOj~i;~RtXAw(llV-I%0O%ZCXmT_shfzNPJg@2vEHCvJ^HmvLlVboG$eYx)b1>suLKDb*g+2d@PXB{hE'
+        '`A?@gP7|(p$}>9vyP%dr%T!v~MUTmr%Bek#GDTu(iK>!7G>7#i)L4?{jDxu6?zE4?eOT}YZ7be{J!yQ0H7t@COEX3_I|=jyaeS|('
+        'EtyZerD<ZZmj-*>8k`a1=S<_|b98jnh(`7hwv62*7E;gz=L6BG8zZs8;D^T?hq;ihJ^K#s>T7B1&aLC?fUO%Pc>!+jA`sJ0<6OxE'
+        '-0TWZbL^n6^FzTkMSTo=c9|qX;!wpicXN#wD5&%OE|ITTyI4ZM>#L<wRQJz1Ay${FlEW{UkLC_cjLgSKDl>>S{ekxUVcgH7R1^cE'
+        '5%1YJFxX+<D`-|pbhV6qsA#$-Dia+smgPvKfvu!&_JnLn+^?5o2Sg-h3@U)}Li2=L&S2kNBU@f}q{y`;lEJE*Ato<%!qK2ODJag@'
+        'jr%_(W1MXpcd^&@Uk|~tP~<5Ow^RBh43d5!s0xcR#-<X@J4gYO3^%}p^?rs%hJHW8bN4eG>}T*aSP1;&pi<r}5!7Hg+OGg=zAF<B'
+        '`(jzFxEmG2`l86t>~|H%Rwn~@$w+LFPYCYzxhcVKe|;%%cemn9Y)*8Z+X~vCGI2jXx#$1Iw;~{(h=oc6Vo|)P6;n&4O&OC}=N~<x'
+        '^(9_WMQw&?0tfy!+7vDPy+fGy0~G{+0MCWX?L-9t00'
     )
     assert isinstance(_MODEL_, _pydsdl_.StructureType)

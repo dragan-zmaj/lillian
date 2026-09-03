@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/public_regulated_data_types/uavcan/metatransport/can/BaseArbitrationID.0.1.dsdl
 #
-# Generated at:  2026-07-21 22:07:53.490011 UTC
+# Generated at:  2026-09-03 11:10:39.902324 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     uavcan.metatransport.can.BaseArbitrationID
@@ -109,21 +109,21 @@ class BaseArbitrationID_0_1:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.StructureType = _restore_constant_(
-        'ABzY8x$R$S0{`um*=`g^6ozNUGvgH-W6YX_W0DX<!hpk`JrG5p4#b26aTArgrwdmnJ>9KdEE_3OxJU$2Ng0WX#3S$sJOWo-^9Vcw'
-        'mpL`_7dAF1FMuWMJ6&6!syg5FpUr>U)3w2$K9sG8MHqKPA@j(OqdR^O%Z})#y(}%FQX0MEMwwULvdZPp>zOnU%+b5%53{ISBJq3N'
-        'f2{IXyMEH?$<i-#KPj>_FFUs7qF=~w^C05ZGD?#x-x)n7R%KrBgHbg-dK2*j<JG+S-{!8-lfo~{JPN8(7Uoxe%^MPYIm+nP_mPal'
-        'jl?EI=$F1IZMJWkp5;+5Dx*~%G51SSL@S95uOy{hk@>5;oD`hDh-I=;D&tM^;$6QeMK2AdQM>h?Ww(%>*15!eS8W&XsQ#Dv$>`mp'
-        'DE%b#^KkP*_p3m)bZga*E6$)P!nA92&2a0qo?7<9FiKWl-Ibct2VTFG)ietEU~e)ur>^#U^98>}9aanKa1}^Bx9Mm_us*y#9!P4o'
-        ';C+TN%VpOuWoYi}X>mJRlcBJ8DR}*BdR7!^m3Jj~#8PBF??R7S#8F`M_%c_^+OlnZz^7I}!MjqaEsy4%p8p#U?R3{O<;O-J%&H)c'
-        'x+0e=Rcv3kab1Pc?O`=>*}YOvMvn|y4{WQc&dJVF$DWHR?Rn1$<rkb@E|bz8)N0g~=Du3cyOx%Y^E8S=?ul+kGVd6@b8ra5YEQU*'
-        'SaSc9!|e9DmU{2tNJN>6JWb2NvPI_eyVa>hby}TKXVp1%UR@X@*%U#{dp+VVbfYpj<#Ow@(Nh<r@`u6m4SvK0>k*M=M$?-XDb{;I'
-        '$_LG7a#i+HE*G2ZkD27G(|n`C+oG!?t~7OB&!F_S4N^DNjhE4NJ%1@pY^5ZxT~dz^SL7?O$GK_dtxappT&v>P&)2ujZi}H7|CmK@'
-        'vR?%Jn~@FEVyCKr53d&`Rz(i{H5-gt9l4h5+FsqxtM$ExWxel>ST_1z({iNmwb0(SZ1ufS%VysjL;pC&Phi|6)|(pU<Lv;a!5MHT'
-        'I1BCq=fK_IJh%tk3+@B=g9pHa;5*>E;CtX9kiZ4-F!(<B0r(+!1pEkG1doEpz>mRCz~f*CJOQ2rm%vZKQ{ZXv40ski2c8EnfS-Y%'
-        'gI|DOf?t7OgWrIc!CRmL*T8$=L+}y!7<>Xg1D}I0hP*mfN3hQYi!M0tg3B(r<pSk`H5c4-!9y23a=~L4JaNG@7d&^t3j`H^k>py&'
-        'KT-BWinc(h;WyxS+c3`(N&XZh9;uZ7vu&ExwrEm=CJkuP*rG`dnzW!v1DZ@glQC%0h9*sD(tsv4Xfgv$rlH9WXfm}$lL=@t4o$|O'
-        '$tW~wLz5OXX+o0`XwrZtb!bw9CIn3gnh-Q0XhP70pb0?}f+hq_2$~QyA!tI-grEsQ6M`lLO$eG0G$Ck0(1f4~K@)-|1WgE<5HulZ'
-        'LePYu2|*KrCIn3gnh-Q0XhP70pb0?}f+hq_2$~QyA*TsBO~`3NP7`vPkkf>mCge0BrwKVt$Z0}O6LOl6(}bKR<TRmvrJf=PRL>i$'
-        '-rDfihPO7b4Mk7|o&Nw@O=nXP4gdf'
+        'ABzY8000000{`um*=`g^6o$v+8Se|mHd_`SI|(r)%-|3bvL_HlKx1%1g1CuF)zf8HM?KxGUMw3aQn*NjrIIp|D-w^uBk%^{5qJb1'
+        'fy-3Q{Dn7slWSYDzSGsUovQOq|55vAZlcotQ*-HNkOxtN<su7t6h7d7BpR%hw9_OH3!&Bc-6AVnMVX18H&dav^|^=ocfF|UEaq+V'
+        '{(Q;TTRd*GMZt@V$9bA$MZ>mS<+=DS^Fz~Ggh_nkd##4py2x_#pk+l3-b1{ty^7cOmwu?#DC0$ug??FxT>om8Ib?&cdTCYvArw)t'
+        'v#}8t@Pf0#?)I?ZX%@D_B3w5;rhkd^a4i<WjkpkNBHNqgC^P$Kk%-p{sl8D%d5h--YbSxwaz>q4aTD2LjcexJvVCPT>ibjwq}2?|'
+        '3mykN3wBSmRr<27>gzlz%?@fTNLpG|v}v7CV=Fue!gy_OR&rXMd3`GDNf?-ey=Sm{>+-ZWo10bSf}EENr7zU<uA^oCX7Bn;N0L*y'
+        '$ukgXCR)4@f!<ORY&F~v0ke0>%>1|26w8w`YYFor5-jB=3pHpFg}zq9E2dgDR&49GR(?|^ZP9$t=D#%?t<6;OsF{|26t-9<*2>5('
+        'vU5p!vsXdQJr&fnEe9&7aj~(~u&1EAr#sCg&&_5s5f}DY*29+2TXJ3<Us}3ghEW)pH{oh1vW8a2x+(W+J2vgT0vqV9ZVG+R`damO'
+        'Tc-|Iu}~+w2f&JiWl2(Wr_EDt)|Qvl<^Pp@FP|Foqg<=A?xuH2#$;FQf7WX3YFOOrKHoKuxOvsjl2j`?Y?6Gl?I&hC=J=LHJ27=+'
+        '^SYA?lVFnVl>Pu~$<UObys0KplLtD<JMz}6=%$*zmc+J%;@3{8hI=!b+p;IWYvhl+=9s))MiI|84~!mQJzxITi{5A__sx$<+S`_q'
+        't@O>|wZqstY68AtgF)-5IdMC;*JsC7I$qVXujBPwRy$tJvcKci(LP{V?|6fjwT?H0_rvHvf_|fzZ>+Z;ZycNeC&6Rj6nGq*24}!o'
+        '@C0}gJO!Qx&wy`$Z-Q@uZ-a9nf%D)3_zw6k_#Su`d>>o{&w=N`55Nz>3t$6mf)~Lh@FVaN_%V1H`~>_IyaIj(ehz*CehGdBehq#D'
+        'ehXd)?}HND03U&m!6)ET@EQ0Vd;z}fae1f@!6_Fky5NcnuDjsA3#1D+T=2*Rk6rM@1y5b@%mvR~@WKTz5tQarB{ov?Yi7T&X!9lS'
+        'eH;SYFl!_d<{Po*k(A~?JfKNspC%P(QiUefeVSCDNgbM0p~(m|8G<GQ(4+=Us?ekYO(vnq1T-0kCS&_F8G$Cl&}0aj3__CuXi|qJ'
+        'HE7ZgO{&nO51Le<2|*KrCIn3gnh-Q0XhP70pb0?}f+hq_2$~QyA!tI-grEsQ6M`lLO$eG0G$Ck0(1f4~K@)-|1WgE<5HulZLePYu'
+        '2|*KrCIn3gnh-Q0XhP70pb0?}f+hq_$Z0}O6LOl6(}bKR<TN3t2{}#3X+lmDa+;9Sgq$YiG$E%6IZdcj%6}2~a@89uk8C)y;m8JK'
+        'L++P;<3G)q+srBs000'
     )
     assert isinstance(_MODEL_, _pydsdl_.StructureType)

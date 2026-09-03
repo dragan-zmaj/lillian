@@ -166,6 +166,8 @@ AS_INCLUDES =
 # C includes
 C_INCLUDES =  \
 -Iinc \
+-Iinc/cyphalMessages \
+-Iinc/uavcan \
 -Ilibs/drivers/STM32G4xx_HAL_Driver/Inc \
 -Ilibs/drivers/STM32G4xx_HAL_Driver/Inc/Legacy \
 -Ilibs/MCSDK_v6.4.2-Full/MotorControl/MCSDK/MCLib/Any/Inc \

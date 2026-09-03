@@ -9,7 +9,7 @@
 //
 // Generator:     nunavut-2.3.1 (serialization was enabled)
 // Source file:   /home/zmaj/.cyphal/public_regulated_data_types/uavcan/metatransport/udp/Endpoint.0.1.dsdl
-// Generated at:  2026-07-21 22:07:17.740392 UTC
+// Generated at:  2026-09-03 10:57:34.650439 UTC
 // Is deprecated: yes
 // Fixed port-ID: None
 // Full name:     uavcan.metatransport.udp.Endpoint
@@ -17,9 +17,9 @@
 //
 // Platform
 //     python_implementation:  CPython
-//     python_version:  3.12.3
+//     python_version:  3.14.6
 //     python_release_level:  final
-//     python_build:  ('main', 'Jun 19 2026 12:46:00')
+//     python_build:  ('main', 'Jul 16 2026 00:19:18')
 //     python_compiler:  GCC 13.3.0
 //     python_revision:
 //     python_xoptions:  {}

@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/public_regulated_data_types/uavcan/metatransport/can/ExtendedArbitrationID.0.1.dsdl
 #
-# Generated at:  2026-07-21 22:07:53.504328 UTC
+# Generated at:  2026-09-03 11:10:39.919547 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     uavcan.metatransport.can.ExtendedArbitrationID
@@ -109,21 +109,21 @@ class ExtendedArbitrationID_0_1:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.StructureType = _restore_constant_(
-        'ABzY8x$R$S0{`umTaMI56o$Kdx_f%=z;Gvo14+n`1arUTo{&T!2Qq{N@e-Bnb}{9|ZCiGE)Poc$JR}0Cq*$UNu>_XD5_rlpOJE5+'
-        'rmFidW`IH203(gQ<0{wjsq*>Sf3*MEHs2WisRQ|1R7Q!%N?yc465kHOgnO)?4f3pvCD&^1x-6=`tP1|qTF&)-edLb*T`#E)OM`)#'
-        '_o`sEAEe%Z%Rm-ETIN|HJv;L4Q1Ue5(N{$nn;98r>E&;<>akT`l;%Q<hMK&A_`dcVe)BJVN2?hYNLj>TC3&fTF^_spk<ahas`FjU'
-        'lW4uTX%+=CVA59ny5)Hh4`LawnmZPMPRn>D<<aF-@)cgZxYHSC>Sqa0SESJXev`Z(l#&gyh-<N3?Ob+=>@x47nY&`A%#NCW>L0b*'
-        '&Po}iQBXu16Wyyq(NUe%AgN3RZ5CyHts2^l&a2twAd2F2<;7izMYVVHt*mBoWDfR*!N$_X9)F@VPZ5X2L2;-Gxmw(Cv@Bd3zd~~('
-        'iLIsCXT<Y@_XEizeNWA^Tk()b%)U=%@?TY3S(#NupPPw<vpg`nP?Hu(9BMVSY&vGRY)9{#Q)?bGyAqjgk@oFD@T<Ai>#yY^NVM9Q'
-        'S78$OS;1GT#6E8Qb(LCm#~o!_?}eVyYGO3{_NIO19rsRn_H4AYXTHcpP?{18o=SUIt8t&}d*YzlcJjhevy9@%%*3~1UU*t<86Cv9'
-        '>r*p6ZoB`fW5?$G&DE~a(J+~@BFp3`b(sg|`Qp@)I4#bIv*MgMFD{G<ZL=^jdp_)5?0ScovgOOyTFrhP%kM|m*Ucqfw3=X9t`)s5'
-        'Nx3!%GjrhPT(0mzX4=LU`$Nu6)mgFL>0Q<rvFSK*O)a1WU%5%#5Z9ka*VK-SS!z2b-87||8fP@G!5-;`l{Yu!Sh!jxNl>i4vbxL0'
-        'di<@I{QY$qn%|CmT$XXG3eDjS;?yc>f?#NaNvoylDVy7G+I5ZEZ&@~Lf5Ng=`)yozEZeo;wd~aXB*uHVp2GdpmQ%GqV>wy-vzVW='
-        'oT&YItXr_0ul+5SbG5(Ka<=xjS<ck{qUCh$Z%4izmc82FiM+ckyS2X?`S+l{y?D+()bkdew;%g^dwf3r0g%9h;34oG@Lljd@G$s3'
-        'xC9;nKL9@jKLU?}9(W8q4xRu{f~UaK;2H2Ncn&-dUI0G^KLI}lKLbApzW~1kFM&5f0S>{t-~;d>_y~LqJ^`PC&&IscYa-a~f+ZK6'
-        'cflnW+;o9(!O#VFUGTsK4_)xc1&>|u#05`X@C-p^zD#_Wo1ZEBLB&`o#Q0nA+qj9!keg3J>XXRKfBuRljh8fOK$8|UX+e`VG-*JS'
-        '4m4>&lWAzugC<>Q(uO82XwrZt3(#a9n#@6yS!gl?O{SsA6g25UlSydOg(e+n(uO7z(4+-Tn$V;HO$eG0G$Ck0(1f4~K@)-|1WgE<'
-        '5HulZLePYu2|*KrCIn3gnh-Q0XhP70pb0?}f+hq_2$~QyA!tI-grEsQ6M`lLO$eG0G$Ck0(1f4~K@)-|1WgE<5HulZLQWHMnvm0k'
-        'oF?QnA*TsBO~`3NP7`vPkkf>mCge0BrwKVt$Z0}#CH_Saih<v&-q`TQhBr1C8_KW>z5f8{y3D2>4gdf'
+        'ABzY8000000{`um>u%IW6vsE4-Oc6>gnLUl(3XZ$yj)5Py|=U#U@mEC5nrm2y`E%Td2P#=XoFO#d}syINVUXN;t_ZR-T)qfN8l0o'
+        '*qQZzNJ7GwekM}%JD%|zpBbOu`p?$CC*~TXKY2J^3-TaxSkAN1i^4meA908ElR=u~VZoK0y;)>szbG^Q%Ua6S19kka`a><sHjBN1'
+        'o_9)bweQ8wfEQkod2ya5S>c$GABF{w10H;v`JtXE!X&=@y^>wF%ClTwDAAA;w-7&2Zo?h>TisQ1nt4T$g??G^T>YjW^_n7I-lb&w'
+        '$B;+CdT~=M@CuI=rsCHvPqT0k7U8PCW8v304_9IyT#gIA!n4ggoo2dz7V&tc5XwEIllQ&6V1p#!O6-<<muw=l%(<xNu9+#lqp`o#'
+        '&r0rQdEv!@mjxRW-7kI7mhDw9Ds=@d79@Qo8%mGP$(bcD2*P+}^RC2#Jh=T<R+BK$2YX9nW9j06JD%&Oh@;|&I9mE#E^Ihj=C9SS'
+        'P~S*mXRh}d@HFFnui$~YFXz~DIOG8{@002L*X2%@CuP>>dLrU1_4F>}gh3SgN=`26ju|eQ(FaN{_e3(_y*mT%_ny;VONAHp($bH@'
+        'KFjz@8JUNyzofiZcTsOs7xm1@wq4|$a!xzuB-H4H7ntyJT~Nm3!W_+N*yrlLI3jnQxo}c1qcG4j;d00`N68(dZPz^>>+!nDI&}rQ'
+        ';WyQw<oIZG&-UHS<-XBDup(huk`$xVdFtusi?j0F|2l+vPc7z0xsu218((i7y~E<wYb9sC3yZ6x>zn!#9U#Y9k}65BOOme*{6v?d'
+        'kMJ5FB)Xr>zHX#kZ!pQ$73i?O2z4upD{>yax#cEtLtK3sU6Fe(Cb4Oyc-xe6vd*aAm^u9oD}UOMWBz&>MP9bHWp#(u-u$B$-9uIG'
+        '>mQZ0E=x;S`ugw&VQgI0fj2b4gz;6MxXJB~nRSiIZ5obM?zmyIa$C4=8@4L9W7w|T35<7fJ&F6L3@0mh+Hj(BXD~l&I9|DPST}Dt'
+        'SGhY3XDfH7;Y{W3GMuj51;eSz-Hm*E47-)P7kT#?b}Dy2@*hBb2l1S@P|w?V-XZMoo%(#-!yti2z@y;1;CtZv;4$z6a1lHXeh8ib'
+        'KLSsJ4%h=vfv3SU;92lv@ErIF_$hcEya0X%ehz*CehGdBehq#DUIK4}0vv+(z=z-?@G<xld<H%TU(~$T9Ye6+28%X0Z-YxVxNQSr'
+        'gP{%X+2ElK9@*fr4W8QInGK%X;01zGf3o;6)xT)wON%jIc=bmjsGBJFx&BtHxFm%B54UL2ctw*2G-*PUCNyb5lLj<tLz5;nnSv%='
+        'XwrcuEojn&CJksZ4^8Hv$t*OPfhN<?WD1&0LX$2unSdr8XwrrzEod?hO`6bT44O2c2|*KrCIn3gnh-Q0XhP70pb0?}f+hq_2$~Qy'
+        'A!tI-grEsQ6M`lLO$eG0G$Ck0(1f4~K@)-|1WgE<5HulZLePYu2|*KrCIn3gnh-Q0XhP70pb0?}f+hq_$ZA4X6SA6+)r71jWHlkH'
+        '30Y0ZYC={MvYL?9gsdiHH6g1BSxu-a#S;X+Sa!SR8ynu(@WuvhL++Qp^B=Tv4!1TA000'
     )
     assert isinstance(_MODEL_, _pydsdl_.StructureType)

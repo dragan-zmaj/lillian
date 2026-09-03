@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cyphal.h"
 #include <stdint.h>
 // #include "stm32g4xx_hal_fdcan.h"
 
@@ -142,6 +143,7 @@ int main(void) {
  // if (!canardWrapperInit())
    // Error_Handler();
   FDCAN_Config();
+  cyphalInit();
 
   uint32_t last_pub_time = HAL_GetTick();
 

@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/public_regulated_data_types/uavcan/primitive/scalar/Natural64.1.0.dsdl
 #
-# Generated at:  2026-07-21 22:07:53.414425 UTC
+# Generated at:  2026-09-03 11:10:39.198891 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     uavcan.primitive.scalar.Natural64
@@ -106,13 +106,13 @@ class Natural64_1_0:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.StructureType = _restore_constant_(
-        'ABzY8x$R$S0{?|mU27CE6y4%(Kebw0^uY&PA7uTSRuG?yf+E|li&ftwB$K#_WF{dW%Wk1y9~27#g<k)!H@j`OR*Lg7$=u}JbM86w'
-        'wfTFw*%&|Rt{rjDbwRvvifXk_nHB{pO=XQ&K|s2;7hEhubmINU3OI%bhj0Mx)FL&lu)Y!LprmzSovKt&15x;rYU+wE#Y<E_e+Fru'
-        '421K_)F2ya?&Hb&7&<eZ#&<Y`v_xnKPO%t-hfi=Bt+PXrTCbGQd`f4La2hBHnd4>G&nQA#{ZM<=uLXZo2hkVqZ*5D2sX(--`$0ly'
-        '8^KHJ1E~xbAlK5Z-YHPNR=mX8ZZ4sq#y5BeX^r?mYfc?M5A-84*-EVe)e#vq2{$FA21G{F>N)*{jV7Z#0J$z#JhI`!I#JRfI2@&A'
-        '@>vZ9C)T(?6o+nFA>Kq+3M^<rEX7`FF2A&5kQRFA<gk~&9;3FIP3$dAwywEf(Jy$kC`VRO4e5@JOskSO(T_T}n-0}Onw>a}i01}5'
-        'J8>J*%`?A?r^Qy0=MNzdW0gqik(Cp5$c7A5Dd0$M$b0F=Sm-2eHI}pY?f>*ynC42P+hesP7~+fxV>E9m;>(9^`A9yNPh=rC<<^);'
-        'lQ4}k?w^KZY7No~7x$2^zEELjyx+s^NjTCKVl1Tf%Rv07Vg_f3x_3ooFnR&A{?-adgK^V{&5}|o46uBiuJ<VCs_y@DNbclnH)<3<'
-        'x>!YoNs@j-yR-evGyKc!1PD6wk)hm5)j7Smpu@bF%Lztf^X)|<hL+ajAF&&mXOR_u0JO?zMi~SE00'
+        'ABzY8000000{@*;&ubJh6kc(+t*yUGiymz~X!S6opq`7OAZypfs^CFFGI?%NGLw*Gmfb?Z9ux}!g+BjZlbLq6R(f$RljP-n@B7~S'
+        '^0oW>ez((n;f|Sd$5logSV@)Kr%XXc3SAoQqz4SwcD=0&Ut4%THGs$X;1CaREA&W3%NXCR>A0X(W~?lwmt)9WK^3*xfW{=Mo;|^^'
+        'M8;s9)D?<OSp0ahKF0o~e&;(LVpt*6dn;M(!Qp4Th}P^9hTba)iqGjR6HYxPK5@J#eMS+(+K0-?Q3d>U<zWQ&Z*41tNlz41BQLPO'
+        '9l;CgJSjB?6zk#E@DwPeWiMiECxxP*&NqCAVVyWnD^4vx3-qIAq8EB&s_Mv~OSmpDbg*VLtew$M*tBi!0g4T=>LMEs#zH|oa6Agv'
+        '$rm{RPK>smNRETBN}R530WqL}7#eGZ#q?8>VYo7klbj6G=`n^+xzHu#`z77WvtnulRk^8|k_E9as#Pj7Z>7uI>E^T6<?VFy*>tnV'
+        '*`q9V8yo3sL{JwwSg3qz|5z4)M`Bal4L2KEt+%QePLtjW3vGqS^UQb_+A8sI?ji`c8*RjEVzu@Snlm)wi-+Oqf9YyDcL`Gt!@X12'
+        '%x4xA`15-VSD#D&rrGbt?TKr`Wugs+jf+6sv}8Kci7ncJQb$kv_z2z_u+(ci_uc|2gpAG>+u_ELaxSaUKbOSI6dlwm_Go%O8WCEH'
+        '{lu;Q_Akfc^D`|F_LpiF<(9HawvG!rNsGl~?bxG~y-Z+YXw|&XLCqYiS@s8}i`#uN1ONa'
     )
     assert isinstance(_MODEL_, _pydsdl_.StructureType)

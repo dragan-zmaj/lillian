@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/public_regulated_data_types/uavcan/primitive/array/Natural16.1.0.dsdl
 #
-# Generated at:  2026-07-21 22:07:53.454898 UTC
+# Generated at:  2026-09-03 11:10:39.150748 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     uavcan.primitive.array.Natural16
@@ -137,30 +137,30 @@ class Natural16_1_0:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.StructureType = _restore_constant_(
-        'ABzY8x$R$S0{`t<OKcn073KWtKW*8TVmmS8*bbdIH2n?pEn5SHireF`P8(=bjE3YyZ(52R42J?0Ab_%Hp#TH)0iFU{YN@5rm6lp+'
-        'sa@5b`qxrRFMEfiBrCT3myNa(2yx!KzjN<>eALmM(*O9UY^wVco%JVcty(>Ax7@&U>fSd_rS9hKYIEFgw!F}dqeEYYLAx5Z1NWDc'
-        'z8l|*FMSt(8|Na!ZaCvC&$gY3s?*5(fj91j-h`WXg20)~-*MQ+sb9SnM`?S)4O(8a5sOr0ebs-y7n4G%-^bs@(E-~D!@#SwL$?+G'
-        'I^GG@rcxXkKlR*tZ41qQyXJ(B9VQT?(>s_axZ-H=D~ES^=jU!?EEGRZcDJW?$ad@QxZ4Q({&s+~nQ<Hq{HoFN#u{$zXN}MubA#>v'
-        '4%ihhwCmk)F=ZHR)oF$Hc(dll;#739yx}M@%im@h5)l_D^}G0P938h?q0^{2LG3|D)9p&Mk3IQL)e9$Mnu?C~MfTT8aeCmznH~sn'
-        'meL|C&XJP16c-X}-LBMIaddGby)EaQY52o+93A|L7xs$wB`^EwMVj68`55fvq%}ESY1X|e7YXiolZzK}_rLJnzzLhdR*_7*Dm-qf'
-        'xE`Ij-E35y&}}?YHAy<r4BQ5vl^p9Ixzn!KonZ1IP1Bxm>TNgvL!6_uY*oa~eldz{HF(!)jJbDR-wnN;ApO=JcRE~JHYjyB#qGpb'
-        'hJAJGH|{mKNy!7NA(f7-q^s?^lh~7z=%ys8{dcYV&Zl0Lr1$rX%{|gcmt^+VYVvGtlaWEDq;%hI-$OF8I7iyQY0o>nKJZ9A+DH2('
-        '9qh@{NvuOV>d^r@DCzJvzr4$PM;>cKhv=}ROds#jC+gA>t}7jTC=N?_f8eR?=_nnObiAjlv;1IUd*Z2WX@HJPI{8QpEM?i?Gx?$u'
-        'bW+k#&nA=f<Beywr$HK$bZSRTtikfr&*hiipi`30Y^xVb+25Pb?T=2=8A)$F7B6eD&e<1=L2uGqlCu5UN_zW+z0q09N;=o`lYJca'
-        'B=S2iB_6#^=Omrqi1|Pdk_ugTX))*>Ixp$s6T89|S=MIVcVB93x<D5t<u>w6vn8LhOD{bJy-PVs?>%*%Y{B~P?+OmOMDIzuyw%(D'
-        '>@)XZe?Qo@xb!|<mXv>{I<OVnT-jAj^a1516*g`}{=8k?^>}oJ3X-lpb1m4C?XJHPd~}trNxJdyS-H%<3mfO<<}1TO*Xf3&ThCQ9'
-        'wr1N8Uny3)Nw*{wx9*o*w{CpLeDun3(1%o%^zn1ojy<sbC$9xJeMBEi`gG@Wc!OgUle75QYr{vM(5I3<f1&!a7xwX^*O~);MxRS6'
-        'ZQg}^+q9V+x*gwXbSZLIf|QDsj+Dv#f-=ac$mqzJltorWR!7#P0tzY$ItnJ0P*PFSQ8KBFvWl{fvPq*DRWYh#)FdCi3SWnB(iEmt'
-        'OzD_1NkXcSI;2Unm{l>WW7ed3%&VB!F>lf$7F8_jSTt!F%PN+2ESt27RTZl`R!v&Rx{7rj>x@%DN<+#(%0fm#MnlFx#zIy>Rzuc6'
-        ')<Qu+K|{en!9qzvNkhp%$wFB{Swq=C*}|xTQ4OO8MlJXXd=0(<-@=rFDGgHwrYuMWQiC)gEzByI)i7&d*227kc@6Uh<}EBLSk$m+'
-        'V9~;|f@KZM29_<XDp=L9YGBpEx`K5L>ju^>*{-<E6~AD@Tt+%Ae(_(!<<iMt@w?3B(tBL4Tj$Ikm)jLCmrfABR4$i&(znDeaJlUE'
-        '9{kU8xor3UNB>`3F3I_Px4U~>ZiCD5r#7km9+&$8m)m|;_PE@$a=G69l4DtBkITIPm+O5W?QywR!R5MlA$Pqk?sb<)t4N#7B#_o|'
-        '-@uTHA(MtM#4C$($f?Nb$eC0`QAbfl(WGGvs~FZXY|;ouRE+2tF-btE5ITg34!>0Dprg|?rd3Sqm^Nt!Gb(0u%$PKXITdp{=1f|^'
-        'f{Fzl3nndLNyU<mC6iXLqGCnIib-o&Q?aIF&BT2MWzv1zXUq!H8qx;R7KRiIX&7Sg7IOSjkkgPeP*hOVP~-;-!wQBq3>z4>Frr{Y'
-        '!-#<q3qpa=APfi#9R(c?9RnQ;(+Z|FOdFWCFr#2b!;FC$3v&wQG|U;8v#_9GLBoQ91q(|GmNYCGShBF9U`4}<ffWn)HLNLE<KG6>'
-        'c&RXfOXhRJh>YI+FVgK=vl>UKxLt9gfd{6|c4e|R$Nn}Je-=ku(E+>W`hlB_A8YaV(P8^*ujAHizZrzKSBvjNN9|U#9aLQw)Lq+m'
-        'LJ>z+@>cgMakQ`8Y<Zn>vU@MiMamV9Et<)kT>oa=`3<Y)tCPNP>dBP4U8#FjJ8;L^^(5TZ2)h+WW^b&{9v>Jp8~qXXvCZLn{%XFE'
-        'PX@1Xm`sWXY~i#RRFDj>TW&DnRo(b|u_FEwWx9FxCi@K*CxiCf<HPLRn&G?AU^iDgY}!Gy8Frnue23kOzvjf>#NWj~#6QKq#J>|9'
-        ';<C8X8<$?&HgY{uc4{@RG4{}?m8G|$G)L%)V@kKT^KWtQPOqo={{TJI#GAb!000'
+        'ABzY8000000{`t<OKcn073KUX%OBeEN3orlacqZ99FqQq`BtrgLc#5ESf>rNDMmwbqM4ST!Ek6$0RkwC778#xAD}6qrIuQ1sil?z'
+        'y3wxcPTgs#rIxuvQoq=;E!mRMRstc;d-r$ly^oJNx)bU@{+Uj6e!?r>c%@mXX3eJUyH?fx-YQk?tXXc<yhhUv>?l0(P2ji6LCd%Q'
+        'Fz(sWRCM#l=!Ym1YG&Q4u{_<fo|LV6*7Mz(8@NyGtmXUGc=nOSHdgiagD6azPi(*GHtLa+2#s%h&r=ael=xfpV-)tARuK4ZsTJ7G'
+        '=ugpZs5X_NQ2VWGS1Vg+j+qrJu*@Ka7+%`NJjNA;7rwQ4mv??=*T(|q*YWPo)J~Xo)vnp~pyzKFIGY(q;lLm3O?RwrSH7wT_L%MO'
+        '^w)2e+`z1M!bOx~uw|<mn6*a5j+~3(`QnD7*ev^yWr#&wpu}IJ$5D9JYz9`nV)>QrjwV~Bu#Y`?R@n{4Bbo@$^hD-&adEofoy%Pi'
+        '&J{{JY3C|Qu}kNAY^|E5YBLINY^1m4oHGr6xsJl)zj1?Z(Z1njFTGGP8y+8n-JCSXYo$ijEpw4z*BV^BfV=;-XZu#r@VAPjn`Ou4'
+        'mO6LCa}OK!vK83%XR5|Y$C|!f=d+Sw{Zo%x)vD!>Kc%UgPpoRoj{Y8HC@GpH=YFpk1-82I*s71&k8RHm+}$Ak#jIIvE-f1jbvB)c'
+        'v9A>S>eR31*11XX1FIpC42`&}t*RB<lN9SF1j)U3rSs0GUKXVG_O#7CQb-k~ch_?KZ0wMcM!KM6&#vz&85x`-9ow|$9bWf8Q;+)S'
+        'n4sfbSu&1wVpl!tr{jW7?(oaIym#ukHgtkc3QG0xo_?V&o#MLEnWy5gg!czt%AQWs89`^ex+=?$$F}EQ+Li|Btf2GH#K2OPUD%T^'
+        'I!EUP4R&o(aX;SLvprp)K|vRH#l#vczqBvE^cGzdba_X;Sjzt1-nT!xM3)7<^IW{F#X47BDF(ew?+8lwYAfj7SN29%C@tt}*H8L+'
+        '*yG6Wy_R_NE?pILZ6oHk9>f*8{@P;Ddvs0EjTd%>Ez+#by6?Z%*mRw42+C~anPf{oWj9}Y40@k3f<AcZJlTTvKRgf|bdx?1bZe`('
+        '*Vt!fdw)MVu(<Rg-4c}DQytifZE^>Si9VvNp!~*-$e*{{2Of`dloxbo&$VDnw!3>M_~<s>5p?hAvvP}l=QqyF{X@e-cj=y>2m7iS'
+        'TeI!Qhl-W%(*r?;t@|a@sT<!hpBy?4`j`rWKHYci*aO>t_C|2iC-kYH&v!qE_c%r&K8s(xF?{qHeJ<$BSE?_2VIRMGqdCwQ^rfJo'
+        '&AX6qn--HpyX{%^4n^)rkdTp3k<gi6Pzos-DHSQ5(n!llt4QmVM_xu=MP8>N49OT$F{D!wMHxjEMV&@5Dq~c|s7@X{8J-GHrwL5R'
+        'm{2jHlYo#RR0y4BFe76|#f(mKn3FN5Vos+8EXY_;v7plumSilcSkh?)D>7D8tmw3cH5qFv))=RRgo1>Ign^WVl!BCol!3H_w1TvT'
+        'w1K>Yyn?)jyn!JJLkfm83>hd&C@LswC>j`*Fsfiw!>9pIf~UaK;2D^ZFri>V!-N4LK`0O!gn=0eGYV!j%ov!HFsEQn!<>Ny2@47q'
+        'G%OfclCY#;NyCzX6$vW}Ry3>_Sd*}(U`@lCAzCGyx#HJMn2Sgzo!|f0aJgjsSNs8Ux#SU->(n`Q#N`fz%OzvPua(QCU-T_;09-D;'
+        'vj_jPTrS=D|Iz;!my2`0*6HpMm)qcS{Hcv=f5hc}!R2<Il_M^<S1#ARUotF99dWr=;BwvXqa!YN7+kJ%7joBI&QxcKq>QA_Oae(2'
+        '>ly}S4C*w9L0%b@K}JSKMMkFr3MvXR3OWsASjMo5VVy=WB4b3wh)xb18IB4^N1I<Vwb52-5|c6}RZQwMjcFOvDyDUs#jK236|*|c'
+        'V_wF*ig}$Du_$9v#iCBjSeCJ@Vp*qEtjbtbv8rR8LFu%Pb;c|qsUWE#X<$&opn^dLZy>`j2^j?$4Fw4W1qFUEFf3tM!LWv510xbf'
+        '6pUyXG2lpW6gV0j18oUy1#Jy&1CtUa6-;WFG%zh;TEVo2X#=woW);k8m^CmjVP3(!hIs>v5*8IKYFIR|EMZx}vW8^?>k3vStnzOS'
+        'tGtw$z{T@9M+>#?{4Z3^N~0WwiKtbw!hvnmX0tTjon!wHIsbA_H^Y9jVtc+Fj~^@1PvJ@PJGX6DOt0Ywrdx>~g{RGCqve-v7F2E1'
+        'vjQgyjrgtVmZGq)*l4=#V!S&Qg(EqqQL}U3*Q`J1vgL8lv8p+*RjRsW)3?W3)i}u3;JTUXj?#0RgXLUjWS!d_rDtzv^VxXJ8g=Hv'
+        '1Eym&8G;{=s++d|#4X#=PtLOQ?=aQLsyoN8vp62BXF|OjfMIT%U2DC$c;D8<-VQHxGBbmQ={Fid$63>}*uC?g@czEC>OgjGIl1l}'
+        '_0Eo2?5UzvskrsAr)ID$eGn!YOh+71vbB?#J5!Ik&CdP|^$J)b)*t`?'
     )
     assert isinstance(_MODEL_, _pydsdl_.StructureType)
