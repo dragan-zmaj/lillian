@@ -2,15 +2,18 @@
 #include "canard.h"
 #include "main.h"
 #include "cyphal.h"
+#include "node/Health_1_0.h"
+#include "nunavut/support/serialization.h"
 #include "o1heap.h"
 #include <stdalign.h>
+#include <stddef.h>
 #include <stdint.h>
 
 // Include generated DSDL Cyphal messages
-#include "motorRpmSetpoint_1_0.h"
-#include "motorStart_1_0.h"
-
-
+#include "motorControl_1_0.h"
+#include "node/Heartbeat_1_0.h"
+#include "stm32g4xx_hal.h"
+#include "stm32g4xx_hal_gpio.h"
 
 
 
@@ -24,7 +27,6 @@ static O1HeapInstance* o1heap = NULL;
 
 extern FDCAN_HandleTypeDef hfdcan1;
 extern FDCAN_TxHeaderTypeDef TxHeader; 
-
 
 //------------------------------------------------------------------------------
 // Memory management - o1heap wrappers
@@ -40,7 +42,6 @@ static void memFree(void* const memory, const size_t size, void* const ptr)
     (void)size;
     o1heapFree(o1heap, ptr);
 }
-
 
 // Cyphal Init
 const struct CanardMemoryResource memory = {NULL, memFree, memAlloc};
@@ -61,6 +62,51 @@ void cyphalInit(void)
 }
 
 
+// Cyphal Message - Heartbeat
+uavcan_node_Heartbeat_1_0 heartbeat = {
+    .uptime                         = 0U,
+    .health.value                   = uavcan_node_Health_1_0_NOMINAL,
+    .mode.value                     = uavcan_node_Mode_1_0_OPERATIONAL,
+    .vendor_specific_status_code    = 0U
+};
+static const CanardTransferID heartbeat_transferID = 0;
+const struct CanardTransferMetadata heartbeat_metadata = {
+    .transfer_id    = heartbeat_transferID,
+    .transfer_kind  = CanardTransferKindMessage,
+    .port_id        = uavcan_node_Heartbeat_1_0_FIXED_PORT_ID_, 
+    .remote_node_id = CANARD_NODE_ID_UNSET, 
+    .priority       = CanardPriorityNominal  
+};
+
+
+
+
+void HeartbeatPublisher(void)
+{
+    static uint32_t now_1 = 0;
+    uint32_t now = HAL_GetTick(); 
+    static uint8_t buffer[uavcan_node_Heartbeat_1_0_EXTENT_BYTES_]; 
+
+    //executes every second 
+    if ((int32_t)(now - now_1) >= 0)
+    {
+        now_1 = now + 1000;
+        heartbeat.uptime = now/1000;
+
+        size_t bufferSize = uavcan_node_Heartbeat_1_0_EXTENT_BYTES_;
+        int8_t resultSer = uavcan_node_Heartbeat_1_0_serialize_(&heartbeat, buffer, &bufferSize);
+        if (resultSer == NUNAVUT_SUCCESS)
+        {
+            int32_t result =   canardTxPush(&canardTxQueue,
+                                            &canard,
+                                            0,
+                                            heartbeat_metadata,
+                                        )
+        }
+    }
+}
+
+
 bool cyphalTx(const uint16_t      subject_id,
                        const uint8_t* const payload,
                        const size_t         size,
@@ -75,3 +121,6 @@ bool cyphalTx(const uint16_t      subject_id,
 
 
 }
+
+
+
