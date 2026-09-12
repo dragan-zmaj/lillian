@@ -26,12 +26,13 @@ beskrajni kodovi. potreban je bilt time include generisan fajl :D zvuci nemoguce
 void cyphalInit(void);
 
 
+void HeartbeatPublisher(void);
+
+
+void cyphalTx(void);
+
 void cyphalRx(canRingBuffer* const rx_ring);
 
 
-bool cyphalTx(const uint16_t      subject_id,
-                       const uint8_t* const payload,
-                       const size_t         size,
-                       const struct CanardTransferMetadata  priority);
 
 

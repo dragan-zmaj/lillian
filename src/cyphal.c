@@ -115,20 +115,37 @@ void HeartbeatPublisher(void)
 }
 
 
-bool cyphalTx(const uint16_t      subject_id,
-                       const uint8_t* const payload,
-                       const size_t         size,
-                       const struct CanardTransferMetadata  priority)
+void cyphalTx(void)
 {
-    /*
-    canardTxPush() does serialization of message into frames and inserts them into tx queue with priority
-    canardTxPeek() takes those frames from queue and transmit them
-    canardTxPop() removes frame from queue after tx is done or failed
-    _____________
-    */
+    struct CanardTxQueueItem* item;
+    while ((item = canardTxPeek(&canardTxQueue)) != NULL)
+    {
+        if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, item->frame.payload.data) != HAL_OK)
+        {
+            // Transmission request Error 
+            Error_Handler();
+        }
+        canardTxPop(&canardTxQueue,item);
+        /*
+        DO NOT free here. Hand ownership to the IRQ:
+        pending_tx_items[some_index++] = item;  // or a small ring buffer
+                // In HAL_CAN_TxMailboxCompleteCallback (or equivalent):
+        void on_can_tx_complete(...)
+        {
+            struct CanardTxQueueItem* item = take_oldest_pending_tx_item();
+            canard_instance.memory_free(&canard_instance, (void*)item);
+        }
+        */
+    }
 
 
 }
 
 
 
+    /*
+    canardTxPush() does serialization of message into frames and inserts them into tx queue with priority
+    canardTxPeek() takes those frames from queue and transmit them
+    canardTxPop() removes frame from queue after tx is done or failed
+    _____________
+    */

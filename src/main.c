@@ -143,23 +143,19 @@ int main(void) {
  // if (!canardWrapperInit())
    // Error_Handler();
   FDCAN_Config();
-  cyphalInit();
-
-  uint32_t last_pub_time = HAL_GetTick();
+  //cyphalInit();
 
   while (1) 
   {
-    /* 4. Drain SPSC buffer into Cyphal engine, trigger callbacks & flush TX */
-    //canardWrapperProcess(&g_canRxRingBuffer);
-    
-    /* 5. Application tasks (e.g., Publish message every 1 second) */
-   // if (HAL_GetTick() - last_pub_time >= 1000U) {
-     // last_pub_time = HAL_GetTick();
-
-     // uint8_t dummy_data[4] = {0xDE, 0xAD, 0xBE, 0xEF};
-    //  (void)canardWrapperPublish_13b(1620U, dummy_data, sizeof(dummy_data),
-     //                                 canard_prio_nominal);
-    //}
+      TxData[0] = 0x51;
+      TxData[1] = 0xAD;
+      //Start the Transmission process 
+      if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, TxData) != HAL_OK)
+      {
+        // Transmission request Error 
+        Error_Handler();
+      }
+      HAL_Delay(10);
   }
 }
 
