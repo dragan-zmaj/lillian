@@ -143,10 +143,11 @@ int main(void) {
  // if (!canardWrapperInit())
    // Error_Handler();
   FDCAN_Config();
-  //cyphalInit();
+  cyphalInit();
 
   while (1) 
   {
+    /*
       TxData[0] = 0x51;
       TxData[1] = 0xAD;
       //Start the Transmission process 
@@ -156,6 +157,7 @@ int main(void) {
         Error_Handler();
       }
       HAL_Delay(10);
+      */
   }
 }
 
