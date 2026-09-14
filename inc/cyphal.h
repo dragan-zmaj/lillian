@@ -16,7 +16,7 @@ beskrajni kodovi. potreban je bilt time include generisan fajl :D zvuci nemoguce
 
 
 #define CYPHAL_NODE_ID 42U
-#define HEAP_ARENA_SIZE_BYTES (8u * 1024u)  // Single pool for all allocations
+#define CYPHAL_HEAP_SIZE (8u * 1024u)  // Single pool for all allocations
 #define CANARD_IFACE_COUNT 1U
 #define CYPHAL_TX_QUEUE_CAPACITY    32U     // Max frames in TX queue
 #define CYPHAL_MTU_BYTES            CANARD_MTU_CAN_CLASSIC

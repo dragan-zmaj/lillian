@@ -19,7 +19,8 @@
 
 //static alignas(O1HEAP_ALIGNMENT) uint8_t g_o1heapPool[O1HEAP_POOL_SIZE_BYTES];
 //static alignas(O1HEAP_ALIGNMENT) uint8_t heap_arena[HEAP_ARENA_SIZE_BYTES];
-uint8_t heap_arena[HEAP_ARENA_SIZE_BYTES] __attribute__ ((aligned (O1HEAP_ALIGNMENT)));
+//uint8_t heap_arena[CYPHAL_HEAP_SIZE] __attribute__ ((aligned (CYPHAL_HEAP_SIZE)));
+uint8_t base[CYPHAL_HEAP_SIZE] __attribute__ ((aligned (O1HEAP_ALIGNMENT)));
 
 // Static storage for heap and ring buffers
 //static O1HeapInstance*  g_o1heapInstance = NULL;
@@ -56,6 +57,8 @@ static inline CanardMicrosecond cyphalGetTime(void)
 
 void cyphalInit(void)
 {
+    o1heap = o1heapInit(base, CYPHAL_HEAP_SIZE);
+
     canard = canardInit(memory);
     canard.node_id = CYPHAL_NODE_ID;
     canardTxQueue = canardTxInit(CYPHAL_TX_QUEUE_CAPACITY,CYPHAL_MTU_BYTES,memoryTx);

@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "canRingBuffer.h"
 #include "cyphal.h"
 #include <stdint.h>
 // #include "stm32g4xx_hal_fdcan.h"
@@ -62,6 +63,7 @@ TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
 
 canRingBuffer g_canRxRingBuffer;
+canRingBuffer g_canTxRingBuffer;
 volatile uint32_t g_canRxOverflowCount = 0;
 FDCAN_HandleTypeDef hfdcan1;
 FDCAN_TxHeaderTypeDef TxHeader;
@@ -140,6 +142,7 @@ int main(void) {
   /* Initialize interrupts */
   MX_NVIC_Init();
   canRingBufferInit(&g_canRxRingBuffer);
+  canRingBufferInit(&g_canTxRingBuffer);
  // if (!canardWrapperInit())
    // Error_Handler();
   FDCAN_Config();
@@ -147,6 +150,9 @@ int main(void) {
 
   while (1) 
   {
+
+    HeartbeatPublisher();
+    cyphalTx();
     /*
       TxData[0] = 0x51;
       TxData[1] = 0xAD;
@@ -927,7 +933,7 @@ static void FDCAN_Config(void) {
     Error_Handler();
   }
 
-  if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_TX_COMPLETE, 0) !=
+  if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_TX_COMPLETE, FDCAN_TX_BUFFER0 | FDCAN_TX_BUFFER1 | FDCAN_TX_BUFFER2) !=
       HAL_OK) {
     Error_Handler();
   }

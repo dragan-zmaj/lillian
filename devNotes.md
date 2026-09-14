@@ -87,6 +87,7 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 	yakut compile ../public_regulated_data_types/uavcan ./tool/cyphalMessages --output=./tool/cyphalHost
 
 ### testing CAN Tx
+	ls -l /dev/serial/by-id/
 	sudo slcand -o -c -s8 /dev/ttyACM4 can0
 	sudo ip link set up can0 txqueuelen 1000
 	candump -tz can0 # terminal 2 dedicated just for monitoring
