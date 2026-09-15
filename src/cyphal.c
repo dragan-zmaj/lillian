@@ -123,12 +123,18 @@ void cyphalTx(void)
     struct CanardTxQueueItem* item;
     while ((item = canardTxPeek(&canardTxQueue)) != NULL)
     {
+        TxHeader.Identifier = item->frame.extended_can_id;
+        TxHeader.DataLength = (uint32_t)item->frame.payload.size; // works only with classic CAN. FDCAN needs switch function.
+
         if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, item->frame.payload.data) != HAL_OK)
         {
             // Transmission request Error 
             Error_Handler();
         }
-        canardTxPop(&canardTxQueue,item);
+        // Pop and Free could be moved to CAN Tx ISR
+        canardTxPop(&canardTxQueue, item);
+        canardTxFree(&canardTxQueue, &canard, item);
+        
         /*
         DO NOT free here. Hand ownership to the IRQ:
         pending_tx_items[some_index++] = item;  // or a small ring buffer

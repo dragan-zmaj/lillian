@@ -150,20 +150,8 @@ int main(void) {
 
   while (1) 
   {
-
     HeartbeatPublisher();
     cyphalTx();
-    /*
-      TxData[0] = 0x51;
-      TxData[1] = 0xAD;
-      //Start the Transmission process 
-      if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, TxData) != HAL_OK)
-      {
-        // Transmission request Error 
-        Error_Handler();
-      }
-      HAL_Delay(10);
-      */
   }
 }
 

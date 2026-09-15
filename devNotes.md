@@ -86,12 +86,17 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 ### command to generate messages for host Yakut
 	yakut compile ../public_regulated_data_types/uavcan ./tool/cyphalMessages --output=./tool/cyphalHost
 
-### testing CAN Tx
+### testing CAN Tx Raw
 	ls -l /dev/serial/by-id/
 	sudo slcand -o -c -s8 /dev/ttyACM4 can0
 	sudo ip link set up can0 txqueuelen 1000
 	candump -tz can0 # terminal 2 dedicated just for monitoring
 	cansend can0 12345678#11223344  #for testing ringBuffer
+
+### yakut on PC Host
+	yakut monitor # for observing Cyphal network on pc host, set environment variables correctly
+	pip install "numpy<2.4" # if yakut monitor fails degrade numpy
+
 
 ### remaining to do
 	- HAL2Cyphal binding

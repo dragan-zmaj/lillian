@@ -15,11 +15,11 @@ beskrajni kodovi. potreban je bilt time include generisan fajl :D zvuci nemoguce
 */
 
 
-#define CYPHAL_NODE_ID 42U
+#define CYPHAL_NODE_ID 37U
 #define CYPHAL_HEAP_SIZE (8u * 1024u)  // Single pool for all allocations
 #define CANARD_IFACE_COUNT 1U
 #define CYPHAL_TX_QUEUE_CAPACITY    32U     // Max frames in TX queue
-#define CYPHAL_MTU_BYTES            CANARD_MTU_CAN_CLASSIC
+#define CYPHAL_MTU_BYTES            CANARD_MTU_CAN_CLASSIC //data length at cyphal to driver level needs to extended if FDCAN is to be used
 #define CYPHAL_TRANSFER_ID_TIMEOUT  CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC  // 2 seconds
 
 
