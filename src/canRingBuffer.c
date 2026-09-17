@@ -1,4 +1,5 @@
 #include "canRingBuffer.h"
+#include "canard.h"
 #include "stddef.h"
 #include <stdatomic.h>
 #include <stdbool.h>
@@ -16,7 +17,7 @@ void canRingBufferInit(canRingBuffer *rb)
     atomic_store_explicit(&rb->tail, 0U, memory_order_relaxed);
 }
 
-bool canRingBufferPush(canRingBuffer *rb, const canRxFrame *frm)
+bool canRingBufferPush(canRingBuffer *rb, const struct CanardFrame *frm)
 {
     if((rb == NULL) || (frm == NULL)) return false;
 
@@ -41,7 +42,7 @@ bool canRingBufferPush(canRingBuffer *rb, const canRxFrame *frm)
     return true;
 }
 
-bool canRingBufferPop(canRingBuffer *rb, canRxFrame *frm)
+bool canRingBufferPop(canRingBuffer *rb, struct CanardFrame *frm)
 {
     if ((rb == NULL) || (frm == NULL)) return false;
 
