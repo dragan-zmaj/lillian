@@ -151,7 +151,7 @@ int main(void) {
   while (1) 
   {
     HeartbeatPublisher();
-    cyphalTx();
+    cyphalPublish();
   }
 }
 

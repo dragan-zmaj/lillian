@@ -1,4 +1,5 @@
 // src/canard_platform.c
+#include "canRingBuffer.h"
 #include "canard.h"
 #include "main.h"
 #include "cyphal.h"
@@ -6,14 +7,18 @@
 #include "nunavut/support/serialization.h"
 #include "o1heap.h"
 #include <stdalign.h>
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 
 // Include generated DSDL Cyphal messages
 #include "motorControl_1_0.h"
 #include "node/Heartbeat_1_0.h"
+#include "node/GetInfo_1_0.h"
+
+// Include ha
 #include "stm32g4xx_hal.h"
-#include "stm32g4xx_hal_gpio.h"
+
 
 
 
@@ -28,6 +33,10 @@ static O1HeapInstance* o1heap = NULL;
 
 extern FDCAN_HandleTypeDef hfdcan1;
 extern FDCAN_TxHeaderTypeDef TxHeader; 
+extern canRingBuffer g_canRxRingBuffer;
+//_____________________________________
+// Cyphal Rx Messages
+struct CanardRxSubscription GetInfoResponse;
 
 //------------------------------------------------------------------------------
 // Memory management - o1heap wrappers
@@ -58,10 +67,23 @@ static inline CanardMicrosecond cyphalGetTime(void)
 void cyphalInit(void)
 {
     o1heap = o1heapInit(base, CYPHAL_HEAP_SIZE);
-
     canard = canardInit(memory);
     canard.node_id = CYPHAL_NODE_ID;
     canardTxQueue = canardTxInit(CYPHAL_TX_QUEUE_CAPACITY,CYPHAL_MTU_BYTES,memoryTx);
+
+
+    // init subscribe cyphal messages
+    int8_t result = canardRxSubscribe(&canard,
+                                    CanardTransferKindResponse,
+                                    uavcan_node_GetInfo_1_0_FIXED_PORT_ID_,
+                                    uavcan_node_GetInfo_Response_1_0_EXTENT_BYTES_,
+                                    CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC,
+                                    &GetInfoResponse);
+    
+    if (result < 0)
+    {
+        Error_Handler();
+    }
 }
 
 
@@ -118,7 +140,7 @@ void HeartbeatPublisher(void)
 }
 
 
-void cyphalTx(void)
+void cyphalPublish(void)
 {
     struct CanardTxQueueItem* item;
     while ((item = canardTxPeek(&canardTxQueue)) != NULL)
@@ -134,27 +156,48 @@ void cyphalTx(void)
         // Pop and Free could be moved to CAN Tx ISR
         canardTxPop(&canardTxQueue, item);
         canardTxFree(&canardTxQueue, &canard, item);
+    }
+}
+
+
+//Process received CAN frame
+void cyphalProcess(void)
+{
+    struct CanardFrame frameRx;
+
+    while (canRingBufferPop(&g_canRxRingBuffer, &frameRx) == true)
+    {
+        struct CanardRxTransfer transfer;
         
-        /*
-        DO NOT free here. Hand ownership to the IRQ:
-        pending_tx_items[some_index++] = item;  // or a small ring buffer
-                // In HAL_CAN_TxMailboxCompleteCallback (or equivalent):
-        void on_can_tx_complete(...)
+        const int8_t result = canardRxAccept(&canard, 
+                                             cyphalGetTime(), 
+                                             &frameRx, 
+                                             0, 
+                                             &transfer,
+                                             NULL);
+        
+        if (result == 1)
         {
-            struct CanardTxQueueItem* item = take_oldest_pending_tx_item();
-            canard_instance.memory_free(&canard_instance, (void*)item);
+            processReceivedTransfer(&transfer);  // A transfer has been received, process it.
+            //canard.memory_free(&canard, transfer.payload); 
+            canard.memory.deallocate(canard.memory.user_reference, transfer.payload.allocated_size, transfer.payload.data);
+        }   
+        else     
+        {
+            Error_Handler();
         }
-        */
+        
+                            
+
     }
 
+}
+
+static void processReceivedTransfer(const struct CanardRxTransfer* transfer)
+{
+    uint8_t a;
+    a = a+1;
 
 }
 
 
-
-    /*
-    canardTxPush() does serialization of message into frames and inserts them into tx queue with priority
-    canardTxPeek() takes those frames from queue and transmit them
-    canardTxPop() removes frame from queue after tx is done or failed
-    _____________
-    */
