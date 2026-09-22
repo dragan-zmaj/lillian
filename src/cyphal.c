@@ -164,15 +164,19 @@ void cyphalPublish(void)
 //Process received CAN frame
 void cyphalProcess(void)
 {
-    struct CanardFrame frameRx;
+    canRxFrame frameRx;
+    struct CanardFrame frameRxCanard;
 
     while (canRingBufferPop(&g_canRxRingBuffer, &frameRx) == true)
     {
         struct CanardRxTransfer transfer;
-        
+        frameRxCanard.extended_can_id = frameRx.identifier;
+        frameRxCanard.payload.size = frameRx.dlc;
+        frameRxCanard.payload.data = frameRx.data;
+
         const int8_t result = canardRxAccept(&canard, 
                                              cyphalGetTime(), 
-                                             &frameRx, 
+                                             &frameRxCanard, 
                                              0, 
                                              &transfer,
                                              NULL);

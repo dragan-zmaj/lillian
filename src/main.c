@@ -158,14 +158,14 @@ int main(void) {
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan,
                                uint32_t RxFifo0ITs) {
   FDCAN_RxHeaderTypeDef rxHeader;
-  struct CanardFrame frame;
+  canRxFrame frame;
   const uint8_t fifoSize =
       HAL_FDCAN_GetRxFifoFillLevel(&hfdcan1, FDCAN_RX_FIFO0);
 
   for (uint_fast8_t cnt = 0; cnt < fifoSize; cnt++) {
-    HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rxHeader, (uint8_t*) frame.payload.data);
-    frame.extended_can_id = rxHeader.Identifier;
-    frame.payload.size = rxHeader.DataLength;
+    HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rxHeader, frame.data);
+    frame.identifier = rxHeader.Identifier;
+    frame.dlc = (uint8_t)(rxHeader.DataLength >> 16U);
     if (!canRingBufferPush(&g_canRxRingBuffer, &frame))
       g_canRxOverflowCount++;
   }
