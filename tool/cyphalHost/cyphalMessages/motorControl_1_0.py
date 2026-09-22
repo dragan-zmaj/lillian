@@ -3,7 +3,7 @@
 # Source file:
 # /home/zmaj/.cyphal/lillian/tool/cyphalMessages/motorControl.1.0.dsdl
 #
-# Generated at:  2026-09-03 11:10:40.240009 UTC
+# Generated at:  2026-09-22 12:54:26.298990 UTC
 # Is deprecated: no
 # Fixed port ID: None
 # Full name:     cyphalMessages.motorControl
@@ -128,17 +128,17 @@ class motorControl_1_0:
     # Eventually we should replace this with ad-hoc constants such that no blob is needed and the generated code
     # is not dependent on PyDSDL.
     _MODEL_: _pydsdl_.DelimitedType = _restore_constant_(
-        'ABzY8000000{@*=|7#pY6u)TNOE3LOY+5bYEo!-<?6oRX(1JE?Q8ss;Nm>vp!|d+My-8<xmYLa*D+u-n#lV1pjQ_81cANCBZ9ol#'
-        'otZc9^WOWs&zt*g@$YNhPV?ukSJT|&GG+#};8Hy2sf3tis;HC^7Q8$60Hi2rnQu)i@Q41^3;(O{yVFdRC1{TwcW%?_I<vKg`75Vb'
-        '$qRzGmQ5?<atOxo37EK0R_QfWTCJpaOKcak5vmMO-6t>Chdx<II)C^V-Yqk3trlr*!T4VY_k^U6Z+Um>kpP*$%B06~ZaK3dy_4K4'
-        '9m*8DbYuCxQWAJMU(Pa1g=G@TiABneKr?PED^w01-*>CyBY@x*uaRvSOjJqdcfaA?d(2o~=3M8qK>KxyJ=Y_Xru#&UcZ)1nnRg#-'
-        '=^CPYQDgcndc>t^x2p2wbh%9nuTt!l$E6XI67nBP3lq?DiQ|V!gxB#S{P@o{7U506GF=rOZ@Q~n%{JN?52IZ!DP;f7pb+IP3Ic9r'
-        'hJ2Pz+l~g%PjD4u?AJs~4wZ(ClSKT!JI}Vo9^|Z2+A@**k-Nl<s&xirkiaTVMZ0eJNRfJXW=ulc8;8?F?;Z?L6)<>S@SQ>2%4Q&i'
-        'l!BK7OHCQfOKC7GrT9*KI}V-o4c#jYxuI|xN*h|eD>Cr=RPfV=<|u2u=vx%jmS~&K9&WDnwosU;XagKwGLc1ynqX}^2B8aKX(0;E'
-        '$K-i;vEis4p^{>^nms?CxOZpgrU2ZPh8boR(@NO}!&ID7#=9>5Z>+TSFS1lpoSR2#f2BEM!@j<!gzgKw-t0GN`%*maT}Eni(Mcd?'
-        'TBJ$}QtQeP3PrPIX?lOGK=UBwnb#siK@*AV?!uVoxhN-ZT*9Albi7)3mx-Gos`9On?o5kF-3|QCcy7*MTo~0-ay@;+`!s92^_TA_'
-        '3kN2pSEy>!qRFmPB9A5@3^^_MURZR)px2TI?;eA_ikHnpHKLiy8c^I0Xc3`-Nl_#>aEJb%k)a5eFj=a@ai5O+$HyiOGl|Q17BAwZ'
-        'P{}Ix0dLQa7=FHwUySfeyo+Cj*5cPBWBdm1{TpH7cmG#FU8<7kw|>}p$F0(ox4#3LA@H0&&1;IE&OI_Wl7%M2=Basz-?zjhGwu1g'
-        'J$f2SeVw<t{$JVP<pegM0xM1u)w8xc-;%>D*3v;kt4KPyL&*oSlciwj9GHgnwm}hDqqkUtbNml&bxrst2LJ#'
+        'ABzY8000000{@*=|7#pY6u)TNOE3MB5}QT^yG2{BD0{66RkWZ@Ta?YkYZ3*aGR*G2+?#ZEXPKD|xq@JSPz($h$oT*IX17W2T7zE#'
+        'Vdu+xpZDJ9ecs$J^M8Kc?KFSxS~bZ{E@Ngu3ogYoo=S*Wriw}#VZpl#4?v27mihLi0)OOhJ@-HRzB|iAS%UW1aTm6%t}|O}m^C@W'
+        'N?s7eyV;~dE{9+YAA^YtWtCo2rPWG$x4`y58==Yo)&1ec`p749N#{5J+`C1_t<@r}Eg1h3;hvK8iIsO}9tn{7%S?JK=aw@Y(mTz)'
+        '(xFVTM;43sm6E{A*>V<HDlC&wjxADl1e$SUS)p?9__kXa9Rmcnc#ZCc;fgBh{OUKody5&%%be?c8t9--vFCbprOBR%@ot{wD)a80'
+        'ZCyijFKVtniXL%k+O4WQIbCVf!c~gB{C#P}xP<)M(!v<@Oyc-n65%y`A3ylLjYW84uuNBl$D3|-yV*vYqhYkiC57zY85E+tMM1zV'
+        'Pm#~kN!!r?dIMK5#(qt-<WOnII7!4GxQlE@>_g5fr7aV=-*A_iQMJy1E+nvuQ_-#)K2oIKog0zR_DA9L$h!vvR0Ry46?}IPx3U>X'
+        'A*JBuz*18Nvr-yNODVn+-;P6PeM9#$LvARXhSG*s?}-fj0TukDp*hN0FZvb*wI$l2vxi%2y=@dGD%t?YMkcZdQ4_3f#~^eeEG<OA'
+        '`Gh?0mKu)Q5h^KmtJ#aQiF<c`W(vSvZJ1$JF|CwsFigcMWxVU+|HevN|2#`2#kqN`_LrI?Htef=O6b0@>&<?PwlBov-ejaU7o7%T'
+        'CPk{GAhj+Jp-?nSmZtZ+3N#N=o_Z}Z6f}{z?k<gZo{Mt)nh`$6jg!^7yF%OqQI&rS>CUx?)ZM`El;_qI#-)u~O0Flbd7ou%xBl?`'
+        'WbV+U^a@pNS~S^pO61W5gdwK|-w%s!81!25;N4@eU-7bes5WS(vIZ1)0$N09U{Vyxb=;-@r*u&SBTN?RaNMWk{>iaP!%X5Lp2sD;'
+        '94cACKH%-?5yOuU@RJSv6z}3^p|$u0$r!)Hd;dmQ`1Su4P?xGC`mG;!-f$~4<?Zi)W(Yi|PxG4Mhcl1N^<=Keuz6}8;x{cZ$y9rO'
+        'Y>%FVQeWk5rvFzrc{zqnsKAQTMD?`o&R66xjkR#t&?=G+?o#rBY&r}#ox>z*zR5zel&l`sO%vLFMPwZPvvGiq{{lQR*Be9!000'
     )
     assert isinstance(_MODEL_, _pydsdl_.DelimitedType)
