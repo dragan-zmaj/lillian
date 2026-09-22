@@ -8,10 +8,10 @@
 // are named with an underscore at the end, like foo_bar_().
 //
 // Generator:     nunavut-2.3.1 (serialization was enabled)
-// Source file:   /home/zmaj/.cyphal/lillian/tool/cyphalMessages/motorControl.1.0.dsdl
-// Generated at:  2026-09-03 10:57:04.928873 UTC
+// Source file:   /home/zmaj/.cyphal/lillian/tool/cyphalMessages/120.motorControl.1.0.dsdl
+// Generated at:  2026-09-22 12:40:41.982254 UTC
 // Is deprecated: no
-// Fixed port-ID: None
+// Fixed port-ID: 120
 // Full name:     cyphalMessages.motorControl
 // Version:       1.0
 //
@@ -41,27 +41,27 @@
 #include <stdlib.h>
 
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_TARGET_ENDIANNESS == 1693710260,
-              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
+              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/120.motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_OMIT_FLOAT_SERIALIZATION_SUPPORT == 0,
-              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
+              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/120.motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_ENABLE_SERIALIZATION_ASSERTS == 0,
-              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
+              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/120.motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_ENABLE_OVERRIDE_VARIABLE_ARRAY_CAPACITY == 0,
-              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
+              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/120.motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_CAST_FORMAT == 2368206204,
-              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
+              "/home/zmaj/.cyphal/lillian/tool/cyphalMessages/120.motorControl.1.0.dsdl is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/// This type does not have a fixed port-ID. See https://forum.opencyphal.org/t/choosing-message-and-service-ids/889
-#define cyphalMessages_motorControl_1_0_HAS_FIXED_PORT_ID_ false
+#define cyphalMessages_motorControl_1_0_HAS_FIXED_PORT_ID_ true
+#define cyphalMessages_motorControl_1_0_FIXED_PORT_ID_     120U
 
 // +-------------------------------------------------------------------------------------------------------------------+
 // | cyphalMessages.motorControl.1.0

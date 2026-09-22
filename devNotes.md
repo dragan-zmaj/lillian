@@ -74,9 +74,10 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 
 ### command to generate messages for C from dsdl
 	nnvg --target-language c \
-		--outdir ./inc \
-		--lookup-dir ../public_regulated_data_types/uavcan \
-		./tool/cyphalMessages
+     --allow-unregulated-fixed-port-id \
+     --outdir ./inc \
+     --lookup-dir ../public_regulated_data_types/uavcan \
+     ./tool/cyphalMessages
 
 	nnvg --target-language c \
 		--outdir ./inc \
@@ -84,7 +85,9 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 		../public_regulated_data_types/uavcan
 
 ### command to generate messages for host Yakut
-	yakut compile ../public_regulated_data_types/uavcan ./tool/cyphalMessages --output=./tool/cyphalHost
+	yakut compile ../public_regulated_data_types/uavcan ./tool/cyphalMessages --output=./tool/cyphalHost --allow-unregulated-fixed-port-id
+
+	yakut compile ./tool/cyphalMessages --output=./tool/cyphalHost --allow-unregulated-fixed-port-id
 
 ### testing CAN Tx Raw
 	ls -l /dev/serial/by-id/
