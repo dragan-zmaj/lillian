@@ -3,6 +3,7 @@
 #include "canard.h"
 #include "main.h"
 #include "cyphal.h"
+#include "mc_api.h"
 #include "node/Health_1_0.h"
 #include "nunavut/support/serialization.h"
 #include "o1heap.h"
@@ -185,18 +186,27 @@ void cyphalProcess(void)
         else     
         {
             Error_Handler();
-        }
-        
-                            
-
+        }                    
     }
-
 }
 
-static void processReceivedTransfer(const struct CanardRxTransfer* transfer)
+void processReceivedTransfer(const struct CanardRxTransfer* transfer)
 {
-    uint8_t a;
-    a = a+1;
+    if(transfer->metadata.port_id == cyphalMessages_motorControl_1_0_FIXED_PORT_ID_)
+    {
+        cyphalMessages_motorControl_1_0 cyphalMotorControl;
+
+        size_t size = transfer->payload.size;
+        if (cyphalMessages_motorControl_1_0_deserialize_(&cyphalMotorControl, transfer->payload.data, &size) >= 0)
+        {
+            if (cyphalMotorControl.startMotor == 1)
+                MC_StartMotor1();
+            else MC_StopMotor1();
+
+
+        }
+
+    }
 
 }
 

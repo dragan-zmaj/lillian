@@ -31,7 +31,7 @@ void cyphalPublish(void);
 
 void cyphalRxInit(void);
 
-static void processReceivedTransfer(const struct CanardRxTransfer* transfer);
+void processReceivedTransfer(const struct CanardRxTransfer* transfer);
 
 
 
