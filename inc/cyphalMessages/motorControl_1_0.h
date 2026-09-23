@@ -9,7 +9,7 @@
 //
 // Generator:     nunavut-2.3.1 (serialization was enabled)
 // Source file:   /home/zmaj/.cyphal/lillian/tool/cyphalMessages/120.motorControl.1.0.dsdl
-// Generated at:  2026-09-22 12:40:41.982254 UTC
+// Generated at:  2026-09-23 19:16:48.838344 UTC
 // Is deprecated: no
 // Fixed port-ID: 120
 // Full name:     cyphalMessages.motorControl
@@ -36,7 +36,6 @@
 #define CYPHAL_MESSAGES_MOTOR_CONTROL_1_0_INCLUDED_
 
 #include <nunavut/support/serialization.h>
-#include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
 
@@ -76,18 +75,18 @@ extern "C" {
 /// When allocating a serialization (TX) buffer, it is safe to use the size of the largest serialized representation
 /// instead of the extent because it provides a tighter bound of the object size; it is safe because the concrete type
 /// is always known during serialization (unlike deserialization). If not sure, use extent everywhere.
-#define cyphalMessages_motorControl_1_0_EXTENT_BYTES_                    64UL
-#define cyphalMessages_motorControl_1_0_SERIALIZATION_BUFFER_SIZE_BYTES_ 5UL
+#define cyphalMessages_motorControl_1_0_EXTENT_BYTES_                    4UL
+#define cyphalMessages_motorControl_1_0_SERIALIZATION_BUFFER_SIZE_BYTES_ 3UL
 static_assert(cyphalMessages_motorControl_1_0_EXTENT_BYTES_ >= cyphalMessages_motorControl_1_0_SERIALIZATION_BUFFER_SIZE_BYTES_,
               "Internal constraint violation");
 
 typedef struct
 {
-    /// bool startMotor
-    bool startMotor;
+    /// saturated uint8 startMotor
+    uint8_t startMotor;
 
-    /// saturated uint32 target_rpm
-    uint32_t target_rpm;
+    /// saturated uint16 targetRpm
+    uint16_t targetRpm;
 } cyphalMessages_motorControl_1_0;
 
 /// Serialize an instance into the provided buffer.
@@ -114,25 +113,26 @@ static inline int8_t cyphalMessages_motorControl_1_0_serialize_(
         return -NUNAVUT_ERROR_INVALID_ARGUMENT;
     }
     const size_t capacity_bytes = *inout_buffer_size_bytes;
-    if ((8U * (size_t) capacity_bytes) < 40UL)
+    if ((8U * (size_t) capacity_bytes) < 24UL)
     {
         return -NUNAVUT_ERROR_SERIALIZATION_BUFFER_TOO_SMALL;
     }
     // Notice that fields that are not an integer number of bytes long may overrun the space allocated for them
     // in the serialization buffer up to the next byte boundary. This is by design and is guaranteed to be safe.
     size_t offset_bits = 0U;
-    {   // bool startMotor
-        buffer[offset_bits / 8U] = obj->startMotor ? 1U : 0U;
-        offset_bits += 1U;
-    }
-    {   // saturated uint32 target_rpm
+    {   // saturated uint8 startMotor
         // Saturation code not emitted -- native representation matches the serialized representation.
-        const int8_t _err0_ = nunavutSetUxx(&buffer[0], capacity_bytes, offset_bits, obj->target_rpm, 32U);
+        buffer[offset_bits / 8U] = (uint8_t)(obj->startMotor);  // C std, 6.3.1.3 Signed and unsigned integers
+        offset_bits += 8U;
+    }
+    {   // saturated uint16 targetRpm
+        // Saturation code not emitted -- native representation matches the serialized representation.
+        const int8_t _err0_ = nunavutSetUxx(&buffer[0], capacity_bytes, offset_bits, obj->targetRpm, 16U);
         if (_err0_ < 0)
         {
             return _err0_;
         }
-        offset_bits += 32U;
+        offset_bits += 16U;
     }
     if (offset_bits % 8U != 0U)  // Pad to 8 bits. TODO: Eliminate redundant padding checks.
     {
@@ -182,19 +182,19 @@ static inline int8_t cyphalMessages_motorControl_1_0_deserialize_(
     const size_t capacity_bytes = *inout_buffer_size_bytes;
     const size_t capacity_bits = capacity_bytes * (size_t) 8U;
     size_t offset_bits = 0U;
-    // bool startMotor
-    if (offset_bits < capacity_bits)
+    // saturated uint8 startMotor
+    if ((offset_bits + 8U) <= capacity_bits)
     {
-        out_obj->startMotor = (buffer[offset_bits / 8U] & 1U) != 0U;
+        out_obj->startMotor = buffer[offset_bits / 8U] & 255U;
     }
     else
     {
-        out_obj->startMotor = false;
+        out_obj->startMotor = 0U;
     }
-    offset_bits += 1U;
-    // saturated uint32 target_rpm
-    out_obj->target_rpm = nunavutGetU32(&buffer[0], capacity_bytes, offset_bits, 32);
-    offset_bits += 32U;
+    offset_bits += 8U;
+    // saturated uint16 targetRpm
+    out_obj->targetRpm = nunavutGetU16(&buffer[0], capacity_bytes, offset_bits, 16);
+    offset_bits += 16U;
     offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
     *inout_buffer_size_bytes = (size_t) (nunavutChooseMin(offset_bits, capacity_bits) / 8U);
     return NUNAVUT_SUCCESS;
