@@ -29,7 +29,7 @@ void HeartbeatPublisher(void);
 
 void cyphalPublish(void);
 
-void cyphalRxInit(void);
+void cyphalProcess(void);
 
 void processReceivedTransfer(const struct CanardRxTransfer* transfer);
 

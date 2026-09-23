@@ -152,6 +152,7 @@ int main(void) {
   {
     HeartbeatPublisher();
     cyphalPublish();
+    cyphalProcess();
   }
 }
 
@@ -165,7 +166,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan,
   for (uint_fast8_t cnt = 0; cnt < fifoSize; cnt++) {
     HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rxHeader, frame.data);
     frame.identifier = rxHeader.Identifier;
-    frame.dlc = (uint8_t)(rxHeader.DataLength >> 16U);
+    frame.dlc = (uint8_t)(rxHeader.DataLength);
     if (!canRingBufferPush(&g_canRxRingBuffer, &frame))
       g_canRxOverflowCount++;
   }

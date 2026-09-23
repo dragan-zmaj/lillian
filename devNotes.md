@@ -99,6 +99,7 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 ### yakut on PC Host
 	yakut monitor # for observing Cyphal network on pc host, set environment variables correctly
 	pip install "numpy<2.4" # if yakut monitor fails degrade numpy
+	yakut pub 120:cyphalMessages.motorControl.1.0 '{startMotor: true, target_rpm: 1000}'
 
 
 ### remaining to do

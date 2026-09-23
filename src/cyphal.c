@@ -174,12 +174,13 @@ void cyphalProcess(void)
         frameRxCanard.payload.size = frameRx.dlc;
         frameRxCanard.payload.data = frameRx.data;
 
-        const int8_t result = canardRxAccept(&canard, 
-                                             cyphalGetTime(), 
-                                             &frameRxCanard, 
-                                             0, 
-                                             &transfer,
-                                             NULL);
+        int8_t result; 
+        result = canardRxAccept(&canard, 
+                                cyphalGetTime(), 
+                                &frameRxCanard, 
+                                0, 
+                                &transfer,
+                                NULL);
         
         if (result == 1)
         {
@@ -187,10 +188,14 @@ void cyphalProcess(void)
             //canard.memory_free(&canard, transfer.payload); 
             canard.memory.deallocate(canard.memory.user_reference, transfer.payload.allocated_size, transfer.payload.data);
         }   
-        else     
+        else if (result < 0)     
         {
             Error_Handler();
-        }                    
+        }  
+        else if (result == 0)
+        {
+            // frame rejected or multi frame ongoing
+        }                  
     }
 }
 
