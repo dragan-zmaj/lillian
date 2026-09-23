@@ -14,3 +14,4 @@ STM32CubeIDE
 compile_commands.json
 .cache
 
+.python-version

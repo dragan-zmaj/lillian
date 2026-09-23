@@ -101,14 +101,20 @@ Makefile was than updated manually to fit the changed project structure. MotorCo
 	pip install "numpy<2.4" # if yakut monitor fails degrade numpy
 	yakut pub 120:cyphalMessages.motorControl.1.0 '{startMotor: true, target_rpm: 1000}'
 
+### socket can setup for PC host
+	sudo systemctl stop ModemManager
+	sudo systemctl stop brltty
+	sudo systemctl disable ModemManager
+	sudo systemctl disable brltty
 
-### remaining to do
-	- HAL2Cyphal binding
-	- DSDL Generation
-	- Application mapping - start/stop, rpm control
-	- Host(Yakut) Integration
-#### risks
-	polling or interrupt CAN ?
-	---> HYBRID APPROACH <---
-	- CAN interrupt very swiftly transfers data from hardware FIFO to software ring buffer
-	- Libcanard executed in polling fashion
+	ls -l /dev/serial/by-id/
+
+	sudo killall slcand
+	sudo slcand -o -c -s8 /dev/ttyACM4 slcan0	# -s8 bitrate
+	sudo ip link set up slcan0
+
+	export UAVCAN__CAN__IFACE="socketcan:slcan0"
+	export UAVCAN__CAN__MTU=8
+	export UAVCAN__CAN__BITRATE="1000000 1000000"   # must match -s8
+	export UAVCAN__NODE__ID=42                       
+	export CYPHAL_PATH=/home/zmaj/.cyphal/public_regulated_data_types

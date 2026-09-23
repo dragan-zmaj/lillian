@@ -1,9 +1,9 @@
 # Motor control command for ESC
 # This message controls the motor start/stop state and RPM value
 
-bool startMotor          # True = start, False = stop
-uint32 target_rpm         # Target RPM value (1/min)
+uint8 startMotor          # True = start, False = stop
+uint16 targetRpm         # Target RPM value (1/min)
 
 # Default extent for messages
-@extent 64 * 8
+@extent 4 * 8
 
