@@ -38,6 +38,8 @@ extern canRingBuffer g_canRxRingBuffer;
 //_____________________________________
 // Cyphal Rx Messages
 struct CanardRxSubscription GetInfoResponse;
+struct CanardRxSubscription motorControl;
+
 
 //------------------------------------------------------------------------------
 // Memory management - o1heap wrappers
@@ -74,17 +76,30 @@ void cyphalInit(void)
 
 
     // init subscribe cyphal messages
-    int8_t result = canardRxSubscribe(&canard,
-                                    CanardTransferKindResponse,
-                                    uavcan_node_GetInfo_1_0_FIXED_PORT_ID_,
-                                    uavcan_node_GetInfo_Response_1_0_EXTENT_BYTES_,
-                                    CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC,
-                                    &GetInfoResponse);
-    
+    int8_t result;
+    result = canardRxSubscribe(&canard,
+                            CanardTransferKindResponse,
+                            uavcan_node_GetInfo_1_0_FIXED_PORT_ID_,
+                            uavcan_node_GetInfo_Response_1_0_EXTENT_BYTES_,
+                            CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC,
+                            &GetInfoResponse);
     if (result < 0)
     {
         Error_Handler();
     }
+
+    result = canardRxSubscribe(&canard,
+                            CanardTransferKindMessage,
+                            cyphalMessages_motorControl_1_0_FIXED_PORT_ID_,
+                            cyphalMessages_motorControl_1_0_EXTENT_BYTES_,
+                            CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC,
+                            &motorControl);
+    if (result < 0)
+    {
+        Error_Handler();
+    }
+
+
 }
 
 
@@ -173,7 +188,7 @@ void cyphalProcess(void)
         frameRxCanard.extended_can_id = frameRx.identifier;
         frameRxCanard.payload.size = frameRx.dlc;
         frameRxCanard.payload.data = frameRx.data;
-
+        
         int8_t result; 
         result = canardRxAccept(&canard, 
                                 cyphalGetTime(), 
