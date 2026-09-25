@@ -40,6 +40,8 @@ extern canRingBuffer g_canRxRingBuffer;
 struct CanardRxSubscription GetInfoResponse;
 struct CanardRxSubscription motorControl;
 
+cyphalMessages_motorControl_1_0 cyphalMotorControl;
+
 
 //------------------------------------------------------------------------------
 // Memory management - o1heap wrappers
@@ -218,7 +220,7 @@ void processReceivedTransfer(const struct CanardRxTransfer* transfer)
 {
     if(transfer->metadata.port_id == cyphalMessages_motorControl_1_0_FIXED_PORT_ID_)
     {
-        cyphalMessages_motorControl_1_0 cyphalMotorControl;
+        
 
         size_t size = transfer->payload.size;
         if (cyphalMessages_motorControl_1_0_deserialize_(&cyphalMotorControl, transfer->payload.data, &size) >= 0)

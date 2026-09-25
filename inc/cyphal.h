@@ -1,9 +1,8 @@
 #include <stdbool.h>
-#include <stdint.h>
 #include <stddef.h>
 #include "canard.h"
-#include "canRingBuffer.h"
-#include "o1heap.h"
+#include "motorControl_1_0.h"
+
 
 
 /*
@@ -22,6 +21,7 @@ beskrajni kodovi. potreban je bilt time include generisan fajl :D zvuci nemoguce
 #define CYPHAL_MTU_BYTES            CANARD_MTU_CAN_CLASSIC //data length at cyphal to driver level needs to extended if FDCAN is to be used
 #define CYPHAL_TRANSFER_ID_TIMEOUT  CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC  // 2 seconds
 
+extern cyphalMessages_motorControl_1_0 cyphalMotorControl;
 
 void cyphalInit(void);
 
