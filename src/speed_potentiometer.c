@@ -202,8 +202,8 @@ bool SPDPOT_Run( SpeedPotentiometer_Handle_t *pHandle, uint16_t rawValue)
         {
           uint16_t potValue = POT_GetValue((Potentiometer_Handle_t *)pHandle); //cstat !MISRAC2012-Rule-11.3
 
-            if ((potValue <= (pHandle->LastSpeedRefSet - pHandle->SpeedAdjustmentRange)) ||
-                (potValue >= (pHandle->LastSpeedRefSet + pHandle->SpeedAdjustmentRange)))
+            if (true)//(potValue <= (pHandle->LastSpeedRefSet - pHandle->SpeedAdjustmentRange)) ||
+                //(potValue >= (pHandle->LastSpeedRefSet + pHandle->SpeedAdjustmentRange)))
             {
               uint32_t rampDuration;
               int16_t currentSpeed;
