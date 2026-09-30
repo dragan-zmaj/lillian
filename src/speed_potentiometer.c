@@ -102,7 +102,7 @@
   *
   * @{
   */
-extern cyphalMessages_motorControl_1_0 cyphalMotorControl;
+extern cyphalMessages_motorControl_1_0 motorControl;
 
 /* Clears the state of a Speed Potentiometer component */
 static inline void SPDPOT_Clear(SpeedPotentiometer_Handle_t *pHandle);
@@ -200,7 +200,7 @@ bool SPDPOT_Run( SpeedPotentiometer_Handle_t *pHandle, uint16_t rawValue)
 
         if (POT_ValidValueAvailable((Potentiometer_Handle_t *) pHandle)) //cstat !MISRAC2012-Rule-11.3
         {
-          uint16_t potValue = cyphalMotorControl.targetRpm;  //POT_GetValue((Potentiometer_Handle_t *)pHandle); //cstat !MISRAC2012-Rule-11.3
+          uint16_t potValue = motorControl.targetRpm;  //POT_GetValue((Potentiometer_Handle_t *)pHandle); //cstat !MISRAC2012-Rule-11.3
 
             if ((potValue <= (pHandle->LastSpeedRefSet - pHandle->SpeedAdjustmentRange)) ||
                 (potValue >= (pHandle->LastSpeedRefSet + pHandle->SpeedAdjustmentRange)))
@@ -210,8 +210,7 @@ bool SPDPOT_Run( SpeedPotentiometer_Handle_t *pHandle, uint16_t rawValue)
               int16_t requestedSpeed;
               int16_t deltaSpeed;
               SpeednPosFdbk_Handle_t *speedHandle = STC_GetSpeedSensor(pSTC);
-              currentSpeed = SPD_GetAvrgMecSpeedUnit(speedHandle);
-              //uint16_t tempValue = cyphalMotorControl.targetRpm;           
+              currentSpeed = SPD_GetAvrgMecSpeedUnit(speedHandle);           
               uint16_t tempValue = ((potValue / pHandle->ConversionFactor) + pHandle->MinimumSpeed);
               requestedSpeed = (int16_t)tempValue;
 
