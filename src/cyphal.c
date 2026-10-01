@@ -183,9 +183,7 @@ void cyphalPublish(void)
 
         if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, item->frame.payload.data) != HAL_OK)
         {
-            // Transmission request Error 
-            // No acknowledgment from CAN network probably!!!
-            Error_Handler();
+            break; 
         }
         // Pop and Free could be moved to CAN Tx ISR
         canardTxPop(&canardTxQueue, item);
