@@ -4,6 +4,11 @@
 uint8 startMotor          # True = start, False = stop
 uint16 targetRpm         # Target RPM value (1/min)
 
+---
+
+uint8 motorStatus       # 0 motor has stopped, 1 motor is running
+uint16 actualRpm        # actual rpm from sensor
+
 # Default extent for messages
 @extent 4 * 8
 
