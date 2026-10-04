@@ -211,7 +211,7 @@ bool SPDPOT_Run( SpeedPotentiometer_Handle_t *pHandle, uint16_t rawValue)
               int16_t deltaSpeed;
               SpeednPosFdbk_Handle_t *speedHandle = STC_GetSpeedSensor(pSTC);
               currentSpeed = SPD_GetAvrgMecSpeedUnit(speedHandle);           
-              uint16_t tempValue = ((potValue / pHandle->ConversionFactor) + pHandle->MinimumSpeed);
+              uint16_t tempValue = RPM_2_SPEED_UNIT(potValue); //((potValue / pHandle->ConversionFactor) + pHandle->MinimumSpeed);
               requestedSpeed = (int16_t)tempValue;
 
               deltaSpeed = (int16_t)requestedSpeed - ((currentSpeed >= 0) ? currentSpeed : -currentSpeed);
