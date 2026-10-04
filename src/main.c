@@ -125,20 +125,20 @@ int main(void) {
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ADC1_Init();
-  MX_ADC2_Init();
-  MX_COMP1_Init();
-  MX_COMP2_Init();
-  MX_COMP4_Init();
-  MX_CORDIC_Init();
-  MX_DAC3_Init();
-  MX_OPAMP1_Init();
-  MX_OPAMP2_Init();
-  MX_OPAMP3_Init();
-  MX_TIM1_Init();
-  MX_TIM4_Init();
+  //MX_ADC1_Init();
+  //MX_ADC2_Init();
+  //MX_COMP1_Init();
+  //MX_COMP2_Init();
+  //MX_COMP4_Init();
+  //MX_CORDIC_Init();
+  //MX_DAC3_Init();
+  //MX_OPAMP1_Init();
+  //MX_OPAMP2_Init();
+  //MX_OPAMP3_Init();
+  //MX_TIM1_Init();
+  //MX_TIM4_Init();
   MX_FDCAN1_Init();
-  MX_MotorControl_Init();
+  //MX_MotorControl_Init();
   /* Initialize interrupts */
   MX_NVIC_Init();
   canRingBufferInit(&g_canRxRingBuffer);

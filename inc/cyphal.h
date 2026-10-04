@@ -13,8 +13,8 @@ hard coded file koji prirodno zahteva repetivne akcije u toku razvoja gde se pis
 beskrajni kodovi. potreban je bilt time include generisan fajl :D zvuci nemoguce al to je cilj
 */
 
-#define CYPHAL_NODE_ID 37U
-#define NODE_NAME "lillian"
+#define CYPHAL_NODE_ID 43U
+#define NODE_NAME "samplingTester"
 #define GIT_HASH 0x5df71   //0x5df71f5a57ddbe96c543f62533a5e1a5b1e8626b
 
 #define SW_MAJOR    1U
