@@ -4,6 +4,7 @@
 uint8 startMotor          # True = start, False = stop
 uint16 targetRpm         # Target RPM value (1/min)
 
+@extent 4 * 8
 ---
 
 uint8 motorStatus       # 0 motor has stopped, 1 motor is running
