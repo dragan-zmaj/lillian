@@ -7,8 +7,23 @@ uint16 targetRpm         # Target RPM value (1/min)
 @extent 4 * 8
 ---
 
-uint8 motorStatus       # 0 motor has stopped, 1 motor is running
-uint16 actualRpm        # actual rpm from sensor
+# Motor state machine status. Values mirror the firmware's MCI_State_t enum:
+#   0  = IDLE             (motor not being controlled)
+#   2  = ALIGNMENT        (encoder alignment in progress)
+#   4  = START            (motor start-up procedure)
+#   6  = RUN              (closed-loop running)
+#   8  = STOP             (stop procedure in progress)
+#   10 = FAULT_NOW        (active fault)
+#   11 = FAULT_OVER       (fault cleared, awaiting ack)
+#   12 = ICLWAIT          (waiting for ICL deactivation)
+#   16 = CHARGE_BOOT_CAP  (boot caps charging)
+#   17 = OFFSET_CALIB     (current/voltage offset calibration)
+#   19 = SWITCH_OVER      (open-loop -> closed-loop transition)
+#   20 = WAIT_STOP_MOTOR  (temporisation, motor stopping)
+#   21 = OTF_DETECTION    (on-the-fly detection)
+#   22 = OTF_BRAKE        (on-the-fly braking)
+uint8 motorState       # 0 motor has stopped, 1 motor is running
+int16 actualRpm        # actual rpm from sensor
 
 # Default extent for messages
 @extent 4 * 8

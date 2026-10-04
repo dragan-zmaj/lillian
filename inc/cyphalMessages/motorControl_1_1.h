@@ -9,7 +9,7 @@
 //
 // Generator:     nunavut-2.3.1 (serialization was enabled)
 // Source file:   /home/zmaj/.cyphal/lillian/tool/cyphalMessages/120.motorControl.1.1.dsdl
-// Generated at:  2026-10-04 07:27:12.761199 UTC
+// Generated at:  2026-10-04 08:36:02.033008 UTC
 // Is deprecated: no
 // Fixed port-ID: 120
 // Full name:     cyphalMessages.motorControl
@@ -242,11 +242,11 @@ static_assert(cyphalMessages_motorControl_Response_1_1_EXTENT_BYTES_ >= cyphalMe
 
 typedef struct
 {
-    /// saturated uint8 motorStatus
-    uint8_t motorStatus;
+    /// saturated uint8 motorState
+    uint8_t motorState;
 
-    /// saturated uint16 actualRpm
-    uint16_t actualRpm;
+    /// saturated int16 actualRpm
+    int16_t actualRpm;
 } cyphalMessages_motorControl_Response_1_1;
 
 /// Serialize an instance into the provided buffer.
@@ -280,14 +280,14 @@ static inline int8_t cyphalMessages_motorControl_Response_1_1_serialize_(
     // Notice that fields that are not an integer number of bytes long may overrun the space allocated for them
     // in the serialization buffer up to the next byte boundary. This is by design and is guaranteed to be safe.
     size_t offset_bits = 0U;
-    {   // saturated uint8 motorStatus
+    {   // saturated uint8 motorState
         // Saturation code not emitted -- native representation matches the serialized representation.
-        buffer[offset_bits / 8U] = (uint8_t)(obj->motorStatus);  // C std, 6.3.1.3 Signed and unsigned integers
+        buffer[offset_bits / 8U] = (uint8_t)(obj->motorState);  // C std, 6.3.1.3 Signed and unsigned integers
         offset_bits += 8U;
     }
-    {   // saturated uint16 actualRpm
+    {   // saturated int16 actualRpm
         // Saturation code not emitted -- native representation matches the serialized representation.
-        const int8_t _err2_ = nunavutSetUxx(&buffer[0], capacity_bytes, offset_bits, obj->actualRpm, 16U);
+        const int8_t _err2_ = nunavutSetIxx(&buffer[0], capacity_bytes, offset_bits, obj->actualRpm, 16U);
         if (_err2_ < 0)
         {
             return _err2_;
@@ -342,18 +342,18 @@ static inline int8_t cyphalMessages_motorControl_Response_1_1_deserialize_(
     const size_t capacity_bytes = *inout_buffer_size_bytes;
     const size_t capacity_bits = capacity_bytes * (size_t) 8U;
     size_t offset_bits = 0U;
-    // saturated uint8 motorStatus
+    // saturated uint8 motorState
     if ((offset_bits + 8U) <= capacity_bits)
     {
-        out_obj->motorStatus = buffer[offset_bits / 8U] & 255U;
+        out_obj->motorState = buffer[offset_bits / 8U] & 255U;
     }
     else
     {
-        out_obj->motorStatus = 0U;
+        out_obj->motorState = 0U;
     }
     offset_bits += 8U;
-    // saturated uint16 actualRpm
-    out_obj->actualRpm = nunavutGetU16(&buffer[0], capacity_bytes, offset_bits, 16);
+    // saturated int16 actualRpm
+    out_obj->actualRpm = nunavutGetI16(&buffer[0], capacity_bytes, offset_bits, 16);
     offset_bits += 16U;
     offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
     *inout_buffer_size_bytes = (size_t) (nunavutChooseMin(offset_bits, capacity_bits) / 8U);
