@@ -1,0 +1,10 @@
+# Testing message - HOST <-> escTester <-> escUnderTest
+# This message is issued by HOST to escTester, upon reception escTester will 
+# startTest and bomb escUnderTest with motorControl messages.
+# The sample rate of motorControl transmission is also set by this message.
+
+uint8 startTest          # 0x1 = start, 0x0 = stop
+uint16 sampleRate        # Target sample rate [Hz]
+
+# Default extent for messages
+@extent 4 * 8
