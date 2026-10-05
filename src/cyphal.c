@@ -19,6 +19,7 @@
 
 // Include ha
 #include "stm32g4xx_hal.h"
+#include "stm32g4xx_hal_tim.h"
 
 
 
@@ -35,6 +36,8 @@ static O1HeapInstance* o1heap = NULL;
 extern FDCAN_HandleTypeDef hfdcan1;
 extern FDCAN_TxHeaderTypeDef TxHeader; 
 extern canRingBuffer g_canRxRingBuffer;
+extern TIM_HandleTypeDef htim6;
+extern volatile uint32_t tim6_overflow_count;
 //_____________________________________
 // Cyphal Rx Messages
 struct CanardRxSubscription getInfoSubscription;
@@ -70,7 +73,16 @@ struct CanardTxQueue  canardTxQueue;
 
 static inline CanardMicrosecond cyphalGetTime(void)
 {
-    return (CanardMicrosecond)HAL_GetTick() * 1000ULL;
+    uint32_t overflow;
+    uint16_t counter;
+
+    do 
+    {
+        overflow = tim6_overflow_count;
+        counter = __HAL_TIM_GET_COUNTER(&htim6);
+    }while (overflow != tim6_overflow_count);
+
+    return ((CanardMicrosecond)overflow << 16) | counter;
 }
 
 void cyphalInit(void)

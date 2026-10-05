@@ -20,6 +20,7 @@
 #include "main.h"
 #include "canRingBuffer.h"
 #include "cyphal.h"
+#include "stm32g4xx_hal_tim.h"
 #include <stdint.h>
 // #include "stm32g4xx_hal_fdcan.h"
 
@@ -256,15 +257,17 @@ static void MX_TIM6_Init(void)
 {
   __HAL_RCC_TIM6_CLK_ENABLE();
   htim6.Instance = TIM6;
-  htim6.Init.Prescaler = 9;
+  htim6.Init.Prescaler = 169;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim6.Init.Period = 16;
+  htim6.Init.Period = 0xFFFF;
   htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
     Error_Handler();
   }
-  HAL_TIM_Base_Start_IT(&htim6);
+  //HAL_TIM_Base_Start_IT(&htim6);
+  __HAL_TIM_ENABLE_IT(&htim6, TIM_IT_UPDATE);
+  __HAL_TIM_ENABLE(&htim6);
 }
 
 /**
