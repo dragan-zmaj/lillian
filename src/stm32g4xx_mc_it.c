@@ -29,6 +29,8 @@
 //cstat +MISRAC2012-Rule-3.1
 #include "motorcontrol.h"
 #include "main.h"
+#include "stm32g431xx.h"
+#include "stm32g4xx_hal_tim.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -41,6 +43,7 @@
 
 
 extern FDCAN_HandleTypeDef hfdcan1;
+extern TIM_HandleTypeDef htim6;
 
 /* Public prototypes of IRQ handlers called from assembly code ---------------*/
 void ADC1_2_IRQHandler(void);
@@ -48,6 +51,7 @@ void TIMx_UP_M1_IRQHandler(void);
 void TIMx_BRK_M1_IRQHandler(void);
 void SPD_HALL_TIM_M1_IRQHandler(void);
 void FDCAN1_IT0_IRQHandler(void);
+void TIM6_DAC_IRQHandler(void);
 
 #if defined (CCMRAM)
 #if defined (__ICCARM__)
@@ -183,4 +187,9 @@ void FDCAN1_IT0_IRQHandler(void)
 
   HAL_FDCAN_IRQHandler(&hfdcan1);
 
+}
+
+void TIM6_DAC_IRQHandler(void)
+{
+  HAL_TIM_IRQHandler(&htim6);
 }

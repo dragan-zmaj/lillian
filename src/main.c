@@ -61,9 +61,10 @@ OPAMP_HandleTypeDef hopamp3;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
+TIM_HandleTypeDef htim6;
 
 canRingBuffer g_canRxRingBuffer;
-canRingBuffer g_canTxRingBuffer;
+
 volatile uint32_t g_canRxOverflowCount = 0;
 FDCAN_HandleTypeDef hfdcan1;
 FDCAN_TxHeaderTypeDef TxHeader;
@@ -84,6 +85,7 @@ static void MX_OPAMP2_Init(void);
 static void MX_OPAMP3_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM4_Init(void);
+static void MX_TIM6_Init(void);
 static void MX_FDCAN1_Init(void);
 static void MX_NVIC_Init(void);
 static void FDCAN_Config(void);
@@ -137,14 +139,12 @@ int main(void) {
   MX_OPAMP3_Init();
   MX_TIM1_Init();
   MX_TIM4_Init();
+  MX_TIM6_Init();
   MX_FDCAN1_Init();
   MX_MotorControl_Init();
   /* Initialize interrupts */
   MX_NVIC_Init();
   canRingBufferInit(&g_canRxRingBuffer);
-  canRingBufferInit(&g_canTxRingBuffer);
- // if (!canardWrapperInit())
-   // Error_Handler();
   FDCAN_Config();
   cyphalInit();
 
@@ -236,11 +236,35 @@ static void MX_NVIC_Init(void) {
   HAL_NVIC_SetPriority(TIM4_IRQn, 2, 0);
   HAL_NVIC_EnableIRQ(TIM4_IRQn);
   /* EXTI15_10_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 3, 1);
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 3, 2);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
   /* FDCAN1 interrupt Init */
   HAL_NVIC_SetPriority(FDCAN1_IT0_IRQn, 3, 0);
   HAL_NVIC_EnableIRQ(FDCAN1_IT0_IRQn);
+  /* TIM6 interrupt init */
+  HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 3, 1);
+  HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
+
+}
+
+/**
+  * @brief TIM6 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM6_Init(void)
+{
+  __HAL_RCC_TIM6_CLK_ENABLE();
+  htim6.Instance = TIM6;
+  htim6.Init.Prescaler = 9;
+  htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim6.Init.Period = 16;
+  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  HAL_TIM_Base_Start_IT(&htim6);
 }
 
 /**
