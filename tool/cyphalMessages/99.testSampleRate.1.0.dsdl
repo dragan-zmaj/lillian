@@ -4,7 +4,7 @@
 # The sample rate of motorControl transmission is also set by this message.
 
 uint8 startTest          # 0x1 = start, 0x0 = stop
-uint16 sampleRate        # Target sample rate [Hz]
+uint16 sampleRate        # Target sample rate [us]
 
 # Default extent for messages
 @extent 4 * 8

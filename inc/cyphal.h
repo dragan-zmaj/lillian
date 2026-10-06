@@ -14,6 +14,7 @@ beskrajni kodovi. potreban je bilt time include generisan fajl :D zvuci nemoguce
 */
 
 #define CYPHAL_NODE_ID 43U
+#define DUT_NODE_ID 37U
 #define NODE_NAME "samplingTester"
 #define GIT_HASH 0x5df71   //0x5df71f5a57ddbe96c543f62533a5e1a5b1e8626b
 
@@ -33,6 +34,8 @@ extern cyphalMessages_motorControl_Request_1_1 motorControlRequest;
 void cyphalInit(void);
 
 void HeartbeatPublisher(void);
+
+void testMotorControlPublisher(void);
 
 void cyphalPublish(void);
 

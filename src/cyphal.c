@@ -14,6 +14,7 @@
 
 // Include generated DSDL Cyphal messages
 #include "motorControl_1_1.h"
+#include "testSampleRate_1_0.h"
 #include "node/Heartbeat_1_0.h"
 #include "node/GetInfo_1_0.h"
 
@@ -46,8 +47,11 @@ uavcan_node_GetInfo_Response_1_0  getInfoResponse;
 static void setNodeName(const char* name);
 
 struct CanardRxSubscription motorControlSubscription;
-cyphalMessages_motorControl_Request_1_1 motorControlRequest;
+cyphalMessages_motorControl_Request_1_1 motorControlRequest = {.targetRpm = 30000};
 cyphalMessages_motorControl_Response_1_1 motorControlResponse;
+
+struct CanardRxSubscription testSampleRateSubscription;
+cyphalMessages_testSampleRate_1_0   testSampleRate;
 
 
 //------------------------------------------------------------------------------
@@ -122,11 +126,23 @@ void cyphalInit(void)
 
     // motorControl - portID = 120 - subscription
     result = canardRxSubscribe(&canard,
-                            CanardTransferKindRequest,
+                            CanardTransferKindResponse,  //reversed compared to master 
                             cyphalMessages_motorControl_1_1_FIXED_PORT_ID_,
                             cyphalMessages_motorControl_Request_1_1_EXTENT_BYTES_,
                             CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC,
                             &motorControlSubscription);
+    if (result < 0)
+    {
+        Error_Handler();
+    }
+
+        // motorControl - portID = 120 - subscription
+    result = canardRxSubscribe(&canard,
+                            CanardTransferKindMessage,
+                            cyphalMessages_testSampleRate_1_0_FIXED_PORT_ID_,
+                            cyphalMessages_testSampleRate_1_0_EXTENT_BYTES_,
+                            CANARD_DEFAULT_TRANSFER_ID_TIMEOUT_USEC,
+                            &testSampleRateSubscription);
     if (result < 0)
     {
         Error_Handler();
@@ -185,6 +201,50 @@ void HeartbeatPublisher(void)
     }
 }
 
+void testMotorControlPublisher(void)
+{
+    static CanardMicrosecond now_1 = 0;
+    CanardMicrosecond now = cyphalGetTime();
+    static uint8_t buffer[cyphalMessages_motorControl_Request_1_1_EXTENT_BYTES_]; 
+    size_t bufferSize = cyphalMessages_motorControl_Request_1_1_EXTENT_BYTES_;
+    static CanardTransferID transferID = 0;
+
+    motorControlRequest.startMotor = testSampleRate.startTest;        
+
+    if ((int32_t)(now - now_1) >= 0)
+    {
+        now_1 = now + (CanardMicrosecond)testSampleRate.sampleRate;
+
+        if (cyphalMessages_motorControl_Request_1_1_serialize_(&motorControlRequest, buffer, &bufferSize) == NUNAVUT_SUCCESS)
+        {
+            // construct metadata
+            const struct CanardTransferMetadata motorControlMetadata = {
+                .transfer_id    = transferID,
+                .transfer_kind  = CanardTransferKindRequest,
+                .port_id        = cyphalMessages_motorControl_1_1_FIXED_PORT_ID_,
+                .remote_node_id = DUT_NODE_ID,  
+                .priority       = CanardPriorityExceptional  
+            };  
+            // Build the payload from the serialized buffer
+            struct CanardPayload payload = {
+                .size = bufferSize,
+                .data = buffer,
+            };   
+            int32_t result =   canardTxPush(&canardTxQueue,
+                                            &canard,
+                                            0,
+                                            &motorControlMetadata,
+                                            payload,
+                                            now,
+                                            NULL);
+            if (result >= 0) transferID++;                   
+        }
+
+
+    }
+
+
+}
 
 void cyphalPublish(void)
 {
@@ -248,43 +308,19 @@ void processReceivedTransfer(const struct CanardRxTransfer* transfer)
     size_t size = transfer->payload.size;
     switch(transfer->metadata.port_id)
     {
+        case cyphalMessages_testSampleRate_1_0_FIXED_PORT_ID_:
+        {
+            if(cyphalMessages_testSampleRate_1_0_deserialize_(&testSampleRate, transfer->payload.data, &size) == NUNAVUT_SUCCESS)
+            {
+
+            }
+        }        
         case cyphalMessages_motorControl_1_1_FIXED_PORT_ID_:
         {   
-            uint8_t buffer[cyphalMessages_motorControl_Response_1_1_EXTENT_BYTES_];
-            size_t bufferSize = cyphalMessages_motorControl_Response_1_1_EXTENT_BYTES_;
-            if (transfer->metadata.transfer_kind != CanardTransferKindRequest) break;
-            if (cyphalMessages_motorControl_Request_1_1_deserialize_(&motorControlRequest, transfer->payload.data, &size) >= 0)
+            if (transfer->metadata.transfer_kind != CanardTransferKindResponse) break;
+            if (cyphalMessages_motorControl_Response_1_1_deserialize_(&motorControlResponse, transfer->payload.data, &size) >= 0)
             {
-                if (motorControlRequest.startMotor == 1)
-                    MC_StartMotor1();
-                else MC_StopMotor1();
-                motorControlResponse.actualRpm = SPEED_UNIT_2_RPM(MC_GetMecSpeedAverageMotor1());
-                motorControlResponse.motorState = (uint8_t)MC_GetSTMStateMotor1();
-                
-                if (cyphalMessages_motorControl_Response_1_1_serialize_(&motorControlResponse, buffer, &bufferSize) == NUNAVUT_SUCCESS)
-                {
-                    const struct CanardTransferMetadata motorControlResponseMetadata = {
-                        .priority = CanardPriorityNominal,
-                        .transfer_kind = CanardTransferKindResponse,
-                        .port_id = cyphalMessages_motorControl_1_1_FIXED_PORT_ID_,
-                        .remote_node_id = transfer->metadata.remote_node_id,
-                        .transfer_id = transfer->metadata.transfer_id
-                    };         
-                    struct CanardPayload payload = {
-                        .size = bufferSize,
-                        .data = buffer
-                    };
-                    CanardMicrosecond now_usec = cyphalGetTime();
-                    int32_t result = canardTxPush(&canardTxQueue,
-                                                  &canard,
-                                                  0,
-                                                  &motorControlResponseMetadata,
-                                                  payload,
-                                                  now_usec,
-                                                  NULL);
-                    if (result < 0) Error_Handler();                    
-                }
-
+                  
             }                 
             break;
         }
