@@ -151,6 +151,7 @@ int main(void) {
   while (1) 
   {
     HeartbeatPublisher();
+    testMotorControlPublisher();
     cyphalPublish();
     cyphalProcess();
   }
@@ -900,7 +901,9 @@ static void MX_GPIO_Init(void) {
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(CAN_TERM_GPIO_Port, CAN_TERM_Pin, GPIO_PIN_SET);
+  #define CAN_TERM_ENABLE 0//1
+  if (CAN_TERM_ENABLE) HAL_GPIO_WritePin(CAN_TERM_GPIO_Port, CAN_TERM_Pin, GPIO_PIN_SET);
+  else HAL_GPIO_WritePin(CAN_TERM_GPIO_Port, CAN_TERM_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : CAN_TERM_Pin */
   GPIO_InitStruct.Pin = CAN_TERM_Pin;
