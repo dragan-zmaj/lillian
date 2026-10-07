@@ -51,7 +51,7 @@ cyphalMessages_motorControl_Request_1_1 motorControlRequest = {.targetRpm = 3000
 cyphalMessages_motorControl_Response_1_1 motorControlResponse;
 
 struct CanardRxSubscription testSampleRateSubscription;
-cyphalMessages_testSampleRate_1_0   testSampleRate = {.sampleRate = 5000};
+cyphalMessages_testSampleRate_1_0   testSampleRate = {.sampleRate = 50000};
 
 
 //------------------------------------------------------------------------------
@@ -207,16 +207,14 @@ void testMotorControlPublisher(void)
     CanardMicrosecond now = cyphalGetTime();
     static uint8_t buffer[cyphalMessages_motorControl_Request_1_1_EXTENT_BYTES_]; 
     size_t bufferSize = cyphalMessages_motorControl_Request_1_1_EXTENT_BYTES_;
-    static CanardTransferID transferID = 0;
+    static CanardTransferID transferID = 0;           
 
-           
-
-    if ((int32_t)(now - now_1) >= 0)
+    if ((int32_t)(now - now_1) >= 0) 
     {
         now_1 = now + (CanardMicrosecond)testSampleRate.sampleRate;
 
-        motorControlRequest.startMotor = testSampleRate.startTest; 
-
+        motorControlRequest.startMotor = testSampleRate.startTest;
+       
         if (cyphalMessages_motorControl_Request_1_1_serialize_(&motorControlRequest, buffer, &bufferSize) == NUNAVUT_SUCCESS)
         {
             // construct metadata
@@ -225,7 +223,7 @@ void testMotorControlPublisher(void)
                 .transfer_kind  = CanardTransferKindRequest,
                 .port_id        = cyphalMessages_motorControl_1_1_FIXED_PORT_ID_,
                 .remote_node_id = DUT_NODE_ID,  
-                .priority       = CanardPriorityExceptional  
+                .priority       = CanardPriorityHigh  
             };  
             // Build the payload from the serialized buffer
             struct CanardPayload payload = {
