@@ -51,7 +51,7 @@ cyphalMessages_motorControl_Request_1_1 motorControlRequest = {.targetRpm = 3000
 cyphalMessages_motorControl_Response_1_1 motorControlResponse;
 
 struct CanardRxSubscription testSampleRateSubscription;
-cyphalMessages_testSampleRate_1_0   testSampleRate;
+cyphalMessages_testSampleRate_1_0   testSampleRate = {.sampleRate = 5000};
 
 
 //------------------------------------------------------------------------------
@@ -209,11 +209,13 @@ void testMotorControlPublisher(void)
     size_t bufferSize = cyphalMessages_motorControl_Request_1_1_EXTENT_BYTES_;
     static CanardTransferID transferID = 0;
 
-    motorControlRequest.startMotor = testSampleRate.startTest;        
+           
 
     if ((int32_t)(now - now_1) >= 0)
     {
         now_1 = now + (CanardMicrosecond)testSampleRate.sampleRate;
+
+        motorControlRequest.startMotor = testSampleRate.startTest; 
 
         if (cyphalMessages_motorControl_Request_1_1_serialize_(&motorControlRequest, buffer, &bufferSize) == NUNAVUT_SUCCESS)
         {
@@ -229,7 +231,7 @@ void testMotorControlPublisher(void)
             struct CanardPayload payload = {
                 .size = bufferSize,
                 .data = buffer,
-            };   
+            }; 
             int32_t result =   canardTxPush(&canardTxQueue,
                                             &canard,
                                             0,
